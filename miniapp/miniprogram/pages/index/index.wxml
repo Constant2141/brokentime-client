@@ -1,0 +1,9 @@
+<view class='wrap'>
+  <view class='logo'></view>
+  <view class='mid-text'>
+    <text>broken  time</text>
+  </view>
+  <view class='mid-text'>
+    <text>破碎·时间</text>
+  </view>
+</view>
