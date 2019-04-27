@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/homepage/homepage",
     "pages/index/index"
   ],
   "window": {
@@ -7,6 +8,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTitleText": "BrokenTime",
-    "navigationBarTextStyle": "#ffffff"
-  }
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
 }

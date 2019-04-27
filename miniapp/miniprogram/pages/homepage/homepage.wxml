@@ -1,0 +1,17 @@
+<!--pages/homepage/homepage.wxml-->
+<view class='homepage-wrap {{change ? ["change"] : "" }}' bindtouchstart='touchStart' bindtouchend='touchEnd' bindtouchmove='touchMove'> 
+  <view class='slide'>
+    <view class='slide-item'>homepage</view>
+    <view class='slide-item'>timetable</view>
+    <view class='slide-item'>bktime</view>
+    <view class='slide-item'>setting</view>
+  </view>
+  <image class='menu' bindtap="menuClick" src="./imgs/menu@3x.png" ></image>
+  <image class='time' src="./imgs/time@3x.png" ></image>
+  <view class='content-wrap'>
+    <view class='shade {{change ? ["show"] : ["hide"]}}' catchtap="menuClick"></view>
+    <view class='time-list'></view>
+    <image mode="aspectFit" src="./imgs/ice.png" style='width:750rpx;height:636rpx;'></image>
+  </view>
+</view>
+
