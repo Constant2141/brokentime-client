@@ -10,8 +10,23 @@
   <image class='time' src="./imgs/time@3x.png" ></image>
   <view class='content-wrap'>
     <view class='shade {{change ? ["show"] : ["hide"]}}' catchtap="menuClick"></view>
-    <view class='time-list'></view>
-    <image mode="aspectFit" src="./imgs/ice.png" style='width:750rpx;height:636rpx;'></image>
+    <view class='time-list'>  
+      <picker-view
+        indicator-class="indicator"
+        indicator-style='border:none;'
+        mask-class="mask"
+        value='{{value}}'
+        bindchange="bindChange"
+      >
+        <picker-view-column class="column">
+          <view class='{{ select == 0 ? ["select"]: ""}}' >20 : 16</view>
+          <view class='{{ select == 1 ? ["select"]: ""}}'>20 : 20</view>
+          <view class='{{ select == 2 ? ["select"]: ""}}'>20 : 21</view>
+          <view class='{{ select == 3 ? ["select"]: ""}}'>20 : 23</view>
+        </picker-view-column>
+      </picker-view>
+  </view>
+    <image class="ice" mode="aspectFit" src="./imgs/ice.png" ></image>
   </view>
 </view>
 
