@@ -1,0 +1,9 @@
+<view class='container'>
+  <swiper indicator-dots="true" indicator-color="#FFFFFF" indicator-active-color="#B2B2B2">
+    <swiper-item>
+      <view class='item'  style="background-image:url('../../images/prompt1.png');;background-repeat:no-repeat;"></view>
+    </swiper-item>
+    <swiper-item>dddd</swiper-item>
+    <swiper-item>dddd</swiper-item>
+  </swiper>
+</view>

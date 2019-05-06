@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/settime/settime",
+    "pages/prompt/prompt",
     "pages/homepage/homepage",
     "pages/index/index"
   ],

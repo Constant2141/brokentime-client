@@ -1,0 +1,39 @@
+/* miniprogram/pages/settime/settime.wxss */
+.container{
+  align-items: left !important;
+}
+.edit{
+  width:12%;
+  height:50px;
+  background-size:contain;
+  background-position:20px;
+  position:fixed;
+  right:0;
+  top:10px;
+}
+.date{
+  width: 40%;
+  height:70rpx;
+  color:#ffffff;
+  margin-left: 30rpx;
+  margin-top: 18rpx;
+}
+.day{
+  color:#ffffff;
+  font-size: 20px;
+  display: inline-block;
+}
+.week{
+    margin-left: 10px;
+    color:#ffffff;
+    font-size: 17px;
+    height:60rpx;
+    display: inline-block;
+}
+.time-line{
+  width:100%;
+  margin-top:30rpx;
+}
+.not-first-node:first-child{
+  margin-top: -25rpx;
+}
