@@ -11,7 +11,7 @@
   <view class='content-wrap'>
     <view class='shade {{change ? ["show"] : ["hide"]}}' catchtap="menuClick"></view>
     <view class='time-list'></view>
-    <image mode="aspectFit" src="./imgs/ice.png" style='width:750rpx;height:636rpx;'></image>
+    <image mode="aspectFit" src="./imgs/ice.png" style='width:750rpx;height:636rpx;' class='bear'></image>
   </view>
 </view>
 

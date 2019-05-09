@@ -1,5 +1,8 @@
 //app.js
 App({
+  config: {
+    host: 'http://broken.zqyy.site/'
+},
   onLaunch: function () {
     
     if (!wx.cloud) {

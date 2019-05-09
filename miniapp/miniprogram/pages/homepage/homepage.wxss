@@ -82,3 +82,8 @@ page{
 .hide{
   display: none;
 }
+.bear{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

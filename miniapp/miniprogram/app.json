@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/homepage/homepage",
+    "pages/start/start",
     "pages/index/index"
+   
+    
+    
   ],
   "window": {
     "backgroundColor": "#dddddd",
