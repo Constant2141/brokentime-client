@@ -1,0 +1,7 @@
+<view class='dark {{isClose ? ["hide"] : ["show"]}}'></view>
+<view class='warn-wrap {{isClose ? ["hide"] : ["show"]}}'>
+  <font class="warn">!</font>
+  <view class="content">{{content}}</view>
+  <button bindtap="confirm">确定</button>
+</view>
+<image class='close-img {{isClose ? ["hide"] : ["show"]}}' src="./close.png" bindtap="close"></image>

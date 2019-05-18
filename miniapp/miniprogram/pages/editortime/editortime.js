@@ -6,45 +6,37 @@ Page({
   data: {
     cards:[
       {
-        id:0,
         timeStart: "06:00",
         timeEnd: '添加持续时间',
         val:""
       },
       {
-        id:1,
         timeStart: "06:45",
         timeEnd: '添加持续时间',
         val:""
       },
       {
-        id:2,
-        timeStart: "09:00",
-        timeEnd: '添加持续时间',
-        val:""
-      },
-      {
-        id:3,
         timeStart: "10:00",
         timeEnd: '添加持续时间',
         val:""
       },
       {
-        id:4,
-        timeStart: "11:00",
+        timeStart: "09:00",
         timeEnd: '添加持续时间',
         val:""
       },
       {
-        id:5,
         timeStart: "12:00",
         timeEnd: '添加持续时间',
         val:""
       },
+      {
+        timeStart: "11:00",
+        timeEnd: '添加持续时间',
+        val:""
+      },
     ],
-    timeStart:'00:00',
     cardID:0,
-    isClickDot:false,
   },
 
   /**
@@ -61,23 +53,45 @@ Page({
     }else{
       console.log(app.globalData.newCard)
     }
+
+    /***按时间分配id ***/
+    let cards = this.data.cards;
+    cards.sort((a,b)=>{
+      return a.timeStart>=b.timeStart? true:false
+    })
+    cards.forEach(function(val,idx){
+      val.id = idx
+    })
+    console.log(cards)
+
+    this.setData({
+      cards:cards
+    })
+  },
+  delCard(e){
+    this.setData({
+      cardID: e.currentTarget.dataset.id
+    })
+    let delCards = this.data.cards.filter(card => card.id != this.data.cardID);
+    
+    this.setData({
+      cards: delCards
+    })
   },
   clickDot(){
-    if (!this.data.isClickDot){
-      this.setData({
-        isClickDot:true
-      })
-    } else {
-      this.setData({
-        isClickDot: false
-      })
-    };
+    wx.redirectTo({
+      url: '../../pages/newCard/newCard',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
   clickCard(e){
     this.setData({
       cardID: e.currentTarget.dataset.id
     })
-    console.log(this.data.cardID);
   },
   submitCard(e){
     let ID = e.currentTarget.dataset.id;

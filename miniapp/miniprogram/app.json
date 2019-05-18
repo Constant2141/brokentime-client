@@ -2,6 +2,7 @@
   "pages": [
     "pages/editortime/editortime",
     "pages/newCard/newCard",
+    "components/warn/warn",
     "pages/prompt/prompt",
     "pages/settime/settime",
     "pages/homepage/homepage",
@@ -15,5 +16,4 @@
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"
-
 }

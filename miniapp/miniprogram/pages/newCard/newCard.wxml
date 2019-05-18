@@ -1,13 +1,13 @@
+<warn  wx:if="{{isClickDot}}" content="是否确认删除当前的编辑内容并返回上一个界面？" turnBackTo="pages/editortime/editortime"/>
 <image class='bg'></image>
 <image class='bg-card'></image>
 <view class='time'>
   <font class='date'>新建日程</font>
-  <image class='dot {{!isClickDot ? ["dot-rotate"]:["dot-no"]}}' src='./imgs/dot.png' bindtap='clickDot' ></image>
+  <image class='dot dot-rotate' src='./imgs/dot.png' bindtap='clickDot' ></image>
   <!-- <font class='week'>星期四</font> -->
 </view>
 <view class='card-wrap'>
   <view class='card'>
-    
     <view class='top-line'>
       <picker
         mode="time"

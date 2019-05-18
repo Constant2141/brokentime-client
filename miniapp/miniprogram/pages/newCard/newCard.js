@@ -17,15 +17,9 @@ Page({
 
   },
   clickDot() {
-    if (!this.data.isClickDot) {
-      this.setData({
-        isClickDot: true
-      })
-    } else {
-      this.setData({
-        isClickDot: false
-      })
-    };
+    this.setData({
+      isClickDot: !this.data.isClickDot,
+    })
   },
   bindTimeStartChange(e) {
     this.setData({

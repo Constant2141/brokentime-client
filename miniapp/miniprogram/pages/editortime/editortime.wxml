@@ -2,16 +2,18 @@
 <image class='bg-card'></image>
 <view class='time'>
   <font class='date'>第一天</font>
-  <navigator class="" target="" url="/pages/newCard/newCard" hover-class="navigator-hover" open-type="navigate">   
-    <image class='dot' src='./imgs/dot.png' bindtap='clickDot' ></image>
-  </navigator>
+  <image class='dot' src='./imgs/dot.png' bindtap='clickDot' ></image>
+  
   <!-- <font class='week'>星期四</font> -->
 </view>
 <view class='card-wrap' wx:for="{{cards}}"  wx:key="id">
   <view class='card'>
     
     <view class='top-line'>
-      <font class="close-card"></font>
+      <font class="close-card" 
+        data-id="{{item.id}}" 
+        bindtap="delCard">
+      </font>
       <picker
         mode="time"
         value="{{item.timeStart}}"
