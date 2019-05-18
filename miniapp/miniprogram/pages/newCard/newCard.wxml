@@ -1,0 +1,51 @@
+<image class='bg'></image>
+<image class='bg-card'></image>
+<view class='time'>
+  <font class='date'>新建日程</font>
+  <image class='dot {{!isClickDot ? ["dot-rotate"]:["dot-no"]}}' src='./imgs/dot.png' bindtap='clickDot' ></image>
+  <!-- <font class='week'>星期四</font> -->
+</view>
+<view class='card-wrap'>
+  <view class='card'>
+    
+    <view class='top-line'>
+      <picker
+        mode="time"
+        value="{{timeStart}}"
+        start="09:01"
+        end="21:01"
+        bindchange="bindTimeStartChange"
+      >
+        <font class="time-start">{{timeStart}}</font>
+      </picker>
+    </view>
+
+    <form> 
+      <textarea 
+      class='text'
+      bindblur="bindTextAreaBlur" 
+      auto-height 
+      auto-focus 
+      placeholder="点击编辑"
+      placeholder-class="placeholder"
+      adjust-position
+      value='{{val}}'
+      maxlength="54" />
+      <view class='bottom-line'>
+        <image src="./imgs/time@3x.png"></image>
+        <button form-type="submit"  bindtap="submitCard">完成</button>
+      </view>
+      <view class='card-time'>
+        <picker
+          mode="time"
+          value="{{timeEnd}}"
+          bindchange='bindTimeEndChange'
+        >
+        <view>
+          <font class="picker">{{timeEnd}}</font>
+        </view>
+        </picker>
+      </view>
+    </form>
+  </view>
+</view>

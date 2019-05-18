@@ -1,0 +1,59 @@
+<image class='bg'></image>
+<image class='bg-card'></image>
+<view class='time'>
+  <font class='date'>第一天</font>
+  <navigator class="" target="" url="/pages/newCard/newCard" hover-class="navigator-hover" open-type="navigate">   
+    <image class='dot' src='./imgs/dot.png' bindtap='clickDot' ></image>
+  </navigator>
+  <!-- <font class='week'>星期四</font> -->
+</view>
+<view class='card-wrap' wx:for="{{cards}}"  wx:key="id">
+  <view class='card'>
+    
+    <view class='top-line'>
+      <font class="close-card"></font>
+      <picker
+        mode="time"
+        value="{{item.timeStart}}"
+        start="09:01"
+        end="21:01"
+        data-id="{{item.id}}"
+        bindtap = "clickCard"
+        bindchange="bindTimeStartChange"
+      >
+        <font class="time-start">{{item.timeStart}}</font>
+      </picker>
+    </view>
+
+    <form> 
+      <textarea 
+      class='text'
+      bindblur="bindTextAreaBlur" 
+      auto-height 
+      auto-focus 
+      placeholder="点击编辑"
+      placeholder-class="placeholder"
+      adjust-position
+      value='{{item.val}}'
+      maxlength="54" />
+      <view class='bottom-line'>
+        <image src="./imgs/time@3x.png"></image>
+      </view>
+      <view class='card-time'>
+        <picker
+          mode="time"
+          value="{{timeEnd}}"
+          bindchange='bindTimeEndChange'
+          bindtap = "clickCard"
+          data-id="{{item.id}}"
+        >
+        <view>
+          <font class="picker">{{item.timeEnd}}</font>
+        </view>
+        </picker>
+      </view>
+    </form>
+  </view>
+</view>
+
+<view class='bottom-save'>save</view>

@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/settime/settime",
+    "pages/editortime/editortime",
+    "pages/newCard/newCard",
     "pages/prompt/prompt",
+    "pages/settime/settime",
     "pages/homepage/homepage",
     "pages/index/index"
   ],
@@ -13,4 +15,5 @@
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"
+
 }

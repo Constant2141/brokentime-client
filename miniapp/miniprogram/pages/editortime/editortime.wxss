@@ -1,0 +1,178 @@
+/* pages/editortime/editortime.wxss */
+page{
+  width: 750rpx;
+  height: 100%;
+  position: relative;
+}
+.bg{ 
+  width: 750rpx;
+  height: 100%;
+  position:fixed;
+  z-index: -2; 
+  background: linear-gradient(#000000,#545454);
+}
+.bg-card{
+  width: 550rpx;
+  height: 800rpx;
+  position: fixed;
+  left: 22rpx;
+  top: 125rpx;
+  background: linear-gradient(#000000,#545454);
+  z-index: -1;
+  transform: rotate(-30deg);
+}
+.time{
+  color: #fff;
+  height: 87rpx;
+  line-height: 87rpx;  
+}
+.date{
+  font-size: 20px;
+  margin-left: 38rpx;
+}
+.week{
+  font-size: 16px;
+  margin-left: 42rpx;
+}
+.card{
+  width: 678rpx;
+  min-height: 360rpx;
+  background-color: #C2C2C2;
+  position: relative;
+  margin: 40rpx auto;
+  margin-bottom: 80rpx;
+}
+.top-line{
+  width: 100%;
+  height: 100rpx;
+  background-color: #7B7B7B;
+  box-shadow: #7B7B7B 0 3rpx 6rpx 1;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  line-height: 100rpx;
+}
+/* 
+.top-day{
+  margin-left: 42rpx;
+  vertical-align: baseline;
+}
+.top-time{
+  margin-left: 20rpx;
+  vertical-align: baseline;
+} */
+.time-start{
+  margin-left: 42rpx;
+  vertical-align: baseline;
+}
+.close-card::before{
+  float: right;
+  margin-right: 42rpx;
+  content: "\2716";
+  font-size: 40rpx;
+  vertical-align: baseline;
+}
+
+.dot{
+  width: 87rpx;
+  height: 87rpx;
+  /* background-color: #FFFFFF; */
+  /* opacity: 0.9 ; */
+  /* box-shadow:0 6rpx 12rpx #000000; */
+  position: fixed;
+  z-index: 3;
+  right: 20rpx;
+  top: 10rpx;
+}
+.dot-no{
+  transition: all .5s 0ms;
+  transform:rotate(0deg);
+}
+.dot-rotate{
+  transition: all 0.5s 0ms;
+  transform:rotate(-45deg);
+}
+
+
+.text{
+  width: 600rpx;
+  min-height: 130rpx;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 40rpx 0 88rpx 0 ;
+}
+.text::-webkit-scrollbar{
+  display: none;
+  width: 0;
+}
+.placeholder{
+  font-size: 32rpx;
+  color: #FFFFFF;
+  /* text-decoration:underline;  */
+}
+.bottom-line{
+  position: absolute;
+  width: 100%;
+  height: 46rpx;
+  line-height: 46rpx;
+  bottom: 30rpx;
+}
+.bottom-line>image{
+  width: 46rpx;
+  height: 46rpx;
+  margin-left: 42rpx;
+}
+.picker{
+  font-size: 24rpx;
+  position: absolute;
+  width: 200rpx;
+  height: 46rpx;
+  color: #FFFFFF;
+  vertical-align: middle;
+}
+.bottom-line>button{
+  width: 150rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  border-radius: 27rpx;
+  vertical-align: middle;
+  color: #000;
+  font-size: 24rpx;
+  float: right;
+  margin-right: 42rpx;
+}
+.card-time{
+  position: absolute;
+  z-index: 30;
+  width: 200rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  bottom: 30rpx;
+  left: 100rpx;
+}
+.bottom-save{
+  width: 480rpx;
+  height: 80rpx;
+  font-size: 38rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  background-color: #fff;
+  text-align: center;
+  position: relative;
+  margin-top: 80rpx;
+  margin-bottom: 80rpx;
+  left: 50%;
+  margin-left: -240rpx;
+}
+
+
+/***/
+.show{
+  opacity: 1;
+  transition: opacity 1s 0s;
+}
+.hidden{
+  opacity: 0;
+  transition: opacity 1s 0s;
+}
