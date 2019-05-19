@@ -51,6 +51,9 @@ page{
   font-size: 32rpx;
   line-height: 100rpx;
 }
+.top-picker{
+  width: 35%;
+}
 /* 
 .top-day{
   margin-left: 42rpx;

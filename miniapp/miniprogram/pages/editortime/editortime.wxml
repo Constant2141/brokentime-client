@@ -1,3 +1,4 @@
+<warn wx:if="{{isDel}}" content="是否确认删除当前的编辑内容？"  turnBackTo="" bindmyevent="confirm"/>
 <image class='bg'></image>
 <image class='bg-card'></image>
 <view class='time'>
@@ -15,10 +16,9 @@
         bindtap="delCard">
       </font>
       <picker
+        class="top-picker"
         mode="time"
         value="{{item.timeStart}}"
-        start="09:01"
-        end="21:01"
         data-id="{{item.id}}"
         bindtap = "clickCard"
         bindchange="bindTimeStartChange"

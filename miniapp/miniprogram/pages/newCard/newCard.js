@@ -41,21 +41,19 @@ Page({
       val: e.detail.value
     })
     console.log(e.detail.value)
-    setTimeout(() => {
-    }, 50)
   },
   submitCard() {
     const _this =this;
     function promise() {
       return new Promise(function (resolve, reject) {
-        setTimeout(() => {
+        // setTimeout(() => {
           const newCard = {
             timeStart: _this.data.timeStart,
             timeEnd: _this.data.timeEnd,
             val: _this.data.val,
           }
           return resolve(newCard);
-        }, 1000)
+        // }, 50)
       });
     }
     promise().then(newCard => {

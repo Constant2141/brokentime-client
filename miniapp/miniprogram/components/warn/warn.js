@@ -25,6 +25,7 @@ Component({
     confirm(){
       if(this.data.turnBackTo ==''){
         this.close();
+        this.triggerEvent('myevent',true)
         return true
       }
       else {

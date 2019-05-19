@@ -37,6 +37,7 @@ Page({
       },
     ],
     cardID:0,
+    isDel:false
   },
 
   /**
@@ -69,14 +70,21 @@ Page({
     })
   },
   delCard(e){
-    this.setData({
-      cardID: e.currentTarget.dataset.id
-    })
-    let delCards = this.data.cards.filter(card => card.id != this.data.cardID);
+    this.clickCard(e);
+
     
     this.setData({
-      cards: delCards
+      isDel:!this.data.isDel
     })
+    
+  },
+  confirmDelCard(){
+
+    let delCards = this.data.cards.filter(card => card.id != this.data.cardID);
+    this.setData({      
+      cards: delCards,
+    })
+    
   },
   clickDot(){
     wx.redirectTo({
@@ -93,54 +101,54 @@ Page({
       cardID: e.currentTarget.dataset.id
     })
   },
-  submitCard(e){
-    let ID = e.currentTarget.dataset.id;
-    let val = `cards[${ID}].val`;
-    this.setData({
-      [val]: e.detail.value
-    });
-    console.log(this.data.val)
-  },
+  // submitCard(e){
+  //   let ID = e.currentTarget.dataset.id;
+  //   let val = `cards[${ID}].val`;
+  //   this.setData({
+  //     [val]: ID
+  //   });
+  //   console.log(this.data.cards[`${ID}`].val)
+  // },
   bindTimeStartChange(e){
     let ID = this.data.cardID;
     let timeStart =`cards[${ID}].timeStart`
-
-    setTimeout(()=>{
+    // setTimeout(()=>{
       this.setData({
         [timeStart]: e.detail.value
       });
+      
       console.log(this.data.cards[ID].timeStart)
-    },0)
+    // },0)
   },
   bindTimeEndChange(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       timeEnd:e.detail.value,
     });
-    setTimeout(() => {
+    // setTimeout(() => {
       let ID = this.data.cardID;
       let timeEnd =`cards[${ID}].timeEnd`
-      console.log(timeEnd)
       this.setData({
-      //  msg: `${this.getMins(this.data.time)} + min`,
         [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
-        // msg: this.getMins(this.data.time) + 'min'
       });
-
-      console.log(this.data.cards[ID].msg)
-    },0)
-    console.log(this.data.timeEnd,this.data.msg)
-  },
-  setDataValue(name,value){
-    this.setData({
-      name: value
-    });
     console.log(this.data.timeEnd)
+
+    // },0)
   },
+  // setDataValue(name,value){
+  //   this.setData({
+  //     name: value
+  //   });
+  //   console.log(this.data.timeEnd)
+  // },
   getMins(time){
     let [hour, minute] = time.split(':');
     let mins = parseInt(hour) * 60 + parseInt(minute);
     return mins
+  },
+  confirm(e){
+    if(e.detail){
+      this.confirmDelCard()
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
