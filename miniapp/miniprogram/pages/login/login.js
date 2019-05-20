@@ -1,26 +1,37 @@
-// miniprogram/pages/prompt/prompt.js
-var app = getApp();
+// miniprogram/pages/login/login.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: getApp().globalData.userInfo 
-  },
 
+  },
+  bindGetUserInfo: function (e) {
+    let that = this;
+    let userInfo = e.detail.userInfo;
+    console.log('获取到用户信息');
+    
+    console.log(userInfo);
+    
+   wx.setStorageSync('userInfo', userInfo)
+    
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
+
   },
 
   /**

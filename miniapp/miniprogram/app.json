@@ -6,7 +6,9 @@
     "components/warn/warn",
     "pages/prompt/prompt",
     "pages/settime/settime",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/login/login"
+    
   ],
   "window": {
     "backgroundColor": "#dddddd",
