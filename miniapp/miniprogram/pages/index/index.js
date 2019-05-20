@@ -34,7 +34,7 @@ Page({
   },
   //页面渲染后执行
   onLoad:function(){
-    console.log(app,this.a)
+    // console.log(app,this.a)
   },
   a:12,
   user:{

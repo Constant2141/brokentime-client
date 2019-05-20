@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/homepage/homepage",
-    "pages/start/start",
-    "pages/index/index"
-   
-    
+    "pages/prompt/prompt",
+    "pages/login/login",
+    "pages/settime/settime"
     
   ],
   "window": {

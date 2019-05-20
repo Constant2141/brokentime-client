@@ -1,6 +1,5 @@
 // pages/homepage/homepage.js
 import touch from "../../utils/getTouchData"
-
 Page({
 
   /**
@@ -11,7 +10,9 @@ Page({
     startX:0,
     startY:0,
     endX:0,
-    endY:0
+    endY:0,
+    value:[1],
+    select:1
   },
   menuClick(e){
     if (this.data.change) {
@@ -26,10 +27,9 @@ Page({
   },
   touchMove(){
     let turn = touch(this.data.startX, this.data.startY, this.data.endX, this.data.endY);
-    console.log(turn)
-    if (turn == "right" && !this.data.change) {
+    if (turn == "right" && this.data.change) {
       this.menuClick();
-    }else if(turn == "left" && this.data.change){
+    }else if(turn == "left" && !this.data.change){
       this.menuClick();
     }
   },
@@ -44,6 +44,12 @@ Page({
       "endX": e.changedTouches[0].clientX,
       "endY": e.changedTouches[0].clientY
     })
+  },
+  bindChange(e){
+    this.setData({
+      value: e.detail.value,
+      select:e.detail.value[0]
+    });
   },
   /**
    * 生命周期函数--监听页面加载

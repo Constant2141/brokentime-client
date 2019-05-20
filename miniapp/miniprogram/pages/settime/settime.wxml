@@ -1,0 +1,11 @@
+<view class='container'>
+  <view class='edit' style='background:url(../../images/write.png);background-repeat:no-repeat;'>
+  </view>
+  <view class='date'>
+    <view class='day'>{{day}}</view>
+    <view class='week'>{{week}}</view>
+  </view>
+  <view class='time-line'>
+    <timeline wx:for="{{timeline}}" wx:key="{{index}}" timeline="{{timeline[index]}}"></timeline>
+  </view>
+</view>

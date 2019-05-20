@@ -1,0 +1,13 @@
+
+    <view class='time-node'>
+      <view class='special-time'>{{specialTime}}</view>
+      <view class='node-line'>
+        <view class='node'></view>
+        <view class='line'></view>
+      </view>
+      <view class='issue-area'>
+        <view class='issue-time' >{{timeline.issueTime}}</view>
+        <view class='issue'>{{timeline.issue}}</view>
+        <view class='duration'>{{timeline.duration}}</view>
+      </view>
+    </view>

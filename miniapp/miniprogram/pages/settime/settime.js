@@ -1,10 +1,41 @@
-// miniprogram/pages/start/start.js
+// miniprogram/pages/settime/settime.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    day:'4.25',
+    week:"星期四",
+    timeline:[{
+      issueTime: '6:00',
+      issue: "刷牙洗脸",
+      duration: "10min"
+    },{
+      issueTime: '7:00',
+      issue: "按摩",
+      duration: "10min"
+    },{
+      issueTime: '8:00',
+      issue: "啥时不干",
+      duration: "10min"
+    },{
+      issueTime: '9:00',             
+      issue: "帮他人按摩",
+      duration: "10min"     
+      },{
+        issueTime: '12:00',
+        issue: "帮他人按摩",
+        duration: "10min"
+      },{
+        issueTime: '16:00',
+        issue: "帮他人按摩",
+        duration: "10min"
+      }, {
+        issueTime: '17:00',
+        issue: "帮他人按摩",
+        duration: "10min"
+      }]
 
   },
 
@@ -19,7 +50,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // console.log(1);
   },
 
   /**
