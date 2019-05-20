@@ -72,12 +72,10 @@ page{
 .time-list  picker-view {
   font-size: 88rpx;
   width: 300rpx;
-  height: 100%;
+  height: 116rpx;
   margin: 0 auto;
+  margin-top: 400rpx;
   color: white;
-}
-.select{
-  opacity: 1 !important;
 }
 .column{
   text-align: center;
@@ -86,7 +84,7 @@ page{
 .column view{
   height: 116rpx;
   line-height: 116rpx;
-  opacity: 0.7;
+  opacity: 1 !important;
 }
 /* .column view:last-of-type{
   display: none;
@@ -101,9 +99,7 @@ page{
 .shade{
   width: 100%;
   height: 100%;
-  background-color: #000;
-  opacity: 0.5;
-  box-shadow: -6rpx 0 30rpx #000;
+  opacity: 0;
   position: absolute;
   z-index: 2;
 }
@@ -115,8 +111,37 @@ page{
 }
 .ice{
   width:750rpx;
-  height:636rpx;
-  position: absolute;
+  /* height:636rpx; */
+  position: fixed;
   bottom: 0;
   left: 0;
+}
+.whatyoudo{
+  font-size: 32rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  color: #FFFFFF;
+  width: 100%;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.5s 0s;
+}
+.hidden{
+  opacity: 0;
+  transition: opacity 0.5s 0s;
+}
+
+/***first*/
+.firstLine{
+  font-size: 44rpx;
+  color: #FFFFFF;
+  width: 100%;
+  margin-top: 60%;
+  text-align: center;
+}
+.add{
+  font-size: 100rpx;
+  color: #FFFFFF;
+  width: 100%;
+  text-align: center;
 }
