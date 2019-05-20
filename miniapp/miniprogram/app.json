@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/newCard/newCard",
-    "pages/editortime/editortime",
     "pages/homepage/homepage",
+    "pages/comment/comment",
+    "pages/editortime/editortime",
+    "pages/newCard/newCard",
     "components/warn/warn",
     "pages/prompt/prompt",
     "pages/settime/settime",

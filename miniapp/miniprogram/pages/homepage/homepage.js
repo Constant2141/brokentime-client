@@ -11,8 +11,24 @@ Page({
     startY:0,
     endX:0,
     endY:0,
-    value:[1],
-    select:1
+    value:[0],
+    select:1,
+    timeList:[
+      {
+        time:'20:26',
+        msg:'背单词'
+      },
+      {
+        time:'20:26',
+        msg:'抄单词'
+      },
+      {
+        time:'20:26',
+        msg:'创造单词'
+      }
+    ],
+    msg:"",
+    isHidden:false,
   },
   menuClick(e){
     if (this.data.change) {
@@ -34,10 +50,12 @@ Page({
     }
   },
   touchStart(e){
-    this.setData({
-      startX :  e.changedTouches[0].clientX,
-      startY : e.changedTouches[0].clientY
-    })
+    if(e.changedTouches[0]){
+      this.setData({
+        startX :  e.changedTouches[0].clientX,
+        startY : e.changedTouches[0].clientY
+      })
+    }
   },
   touchEnd(e) {
     this.setData({
@@ -46,18 +64,29 @@ Page({
     })
   },
   bindChange(e){
+    let ID = e.detail.value[0]
+    let msg = this.data.timeList[ID].msg
     this.setData({
       value: e.detail.value,
-      select:e.detail.value[0]
+      select:e.detail.value[0],
+      isHidden:true,
     });
+    setTimeout(()=>{
+      this.setData({
+        msg:msg,
+        isHidden:false,
+      })
+    },500)
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      msg:this.data.timeList[0].msg
+    })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
