@@ -1,1 +1,140 @@
-/* miniprogram/pages/comment/comment.wxss */
+page{
+  height: auto;
+  width: 750rpx;
+  position: relative;
+  background: linear-gradient(#000000,#545454);
+}
+.bg{
+  width: 750rpx;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  background: linear-gradient(#000000,#545454);
+}
+/**switch-bar*/
+.switch-bar{
+  padding-top: 40rpx;
+  text-align: center;
+  word-spacing: 40rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+}
+.left-arrow, .right-arrow{
+  width: 26rpx;
+  height: 44rpx;
+}
+.left-arrow{
+  float: left;
+  margin-left: 70rpx;
+}
+.right-arrow{
+  float: right;
+  margin-right: 70rpx;
+}
+.switch-date{
+  color: #fff;
+  font-size: 40rpx;
+}
+.switch-week{
+  color: #fff;
+  font-size: 32rpx;
+}
+.show{
+  opacity: 1;
+}
+.hide{
+  opacity: 0;
+}
+/**swiper-wrap**/
+.swiper-wrap{
+  width: 100%;
+  z-index: -1;
+  box-sizing: border-box;
+}
+.swiper-item{
+  height: 260rpx;
+}
+.card-wrap{
+  height: 260rpx;
+  padding-top: 60rpx;
+  width: 610rpx;
+  margin: 0 auto;
+  /* background-color: red; */
+}
+.card{
+  border-radius: 10rpx;
+  position: relative;
+  width: 100%;
+  height: 200rpx;
+}
+.finish{
+  background: linear-gradient(#8A8A8A,#363636);
+}
+.no-finish{
+  background: linear-gradient(#FCFCFC,#BABABA);
+}
+.show{
+  opacity: 1;
+  transition: opacity 1s 0s;
+}
+.hide{
+  opacity: 0;
+  transition: opacity 1s 0s;
+}
+/* .left-dot{
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: 50%;
+  margin-top: -10rpx;
+  margin-left: -10rpx;
+  border-radius: 50%;
+  background: linear-gradient(#8A8A8A,#525252)
+} */
+/**font-content**/
+.font-time{
+  display: inline-flex;
+  font-size: 32rpx;
+  justify-content: center;
+  align-items: center;
+  height: 140rpx;
+  width: 40%;
+}
+.content-wrap{
+  display: inline-flex;
+  width: 100%;
+  height: 140rpx;
+}
+.font-wrap{
+  display: flex;
+  height: 140rpx;
+  width: 60%;
+}
+.font-wrap view{
+  width: 100%;
+  text-align: center;
+}
+.twoLine{
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  font-size: 24rpx;
+}
+.oneLine{
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.finish1{
+  color: #fff;
+}
+.no-finish1{
+  color: #707070;
+}
+.slider{
+  width: 85%;
+  margin: 0 auto;
+  margin-left: 10%;
+  margin-top: -20rpx;
+}
