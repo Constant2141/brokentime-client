@@ -35,7 +35,7 @@ App({
             success: function (res) {
               console.log(res.data.msg)
               wx.setStorageSync("skey", res.data.skey)
-              console.log('储存skey成功')
+              // console.log('储存skey成功')
             }
           })
         } else {
@@ -46,42 +46,42 @@ App({
   },
 
 
-  onLaunch: function () {
-    var that = this;
+  // onLaunch: function () {
+  //   var that = this;
 
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-    } else {
-      wx.cloud.init({
-        traceUser: true,
-      })
-    }
+  //   if (!wx.cloud) {
+  //     console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+  //   } else {
+  //     wx.cloud.init({
+  //       traceUser: true,
+  //     })
+  //   }
 
 
-    let skey = wx.getStorageSync('skey')
-    if (skey) {
-      wx.checkSession({
-        success: function () {
-          console.log('登录中')
-        },
-        fail: function () {
-          wx.showModal({
-            title: '提示',
-            content: '登录已过期，请重新登录',
-            success: function () {
-              that.doLogin()
-            }
-          })
-        }
-      })
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: '尚未登录，请先登录',
-        success: function () {
-          that.doLogin()
-        }
-      })
-    }
-  }
+  //   let skey = wx.getStorageSync('skey')
+  //   if (skey) {
+  //     wx.checkSession({
+  //       success: function () {
+  //         console.log('登录中')
+  //       },
+  //       fail: function () {
+  //         wx.showModal({
+  //           title: '提示',
+  //           content: '登录已过期，请重新登录',
+  //           success: function () {
+  //             that.doLogin()
+  //           }
+  //         })
+  //       }
+  //     })
+  //   } else {
+  //     wx.showModal({
+  //       title: '提示',
+  //       content: '尚未登录，请先登录',
+  //       success: function () {
+  //         that.doLogin()
+  //       }
+  //     })
+  //   }
+  // }
 })

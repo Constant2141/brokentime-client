@@ -1,13 +1,6 @@
 <view class='container'>
   <swiper indicator-dots="true" indicator-color="#FFFFFF" indicator-active-color="#B2B2B2">
     <swiper-item>
-      <view class="text-3">选择时间管理的周期</view>
-      <view class="day-item" hover-class="day-item-choose">一天</view>
-      <view class="day-item" hover-class="day-item-choose" hover-stop-propagation="false">三天</view>
-      <view class="day-item" hover-class="day-item-choose" hover-stop-propagation="false">一周</view>
-      <view class=""></view>
-    </swiper-item>
-    <swiper-item>
       <view class='item'  style="background-image:url('../../images/clock.png');;background-repeat:no-repeat;  background-position:49rpx 120rpx;">
           <view class="text-1">时间规划</view>
           <view class="text-2">精确到每个时间节点</view>        
@@ -19,6 +12,12 @@
           <view class="text-2">利用每个不起眼的时刻</view>         
       </view>
     </swiper-item>
-
+    <swiper-item>
+      <view class="text-3">选择时间管理的周期</view>
+      <view class="day-item {{day == 1?'day-item-choose':''}}" bindtap="choose" id="1">一天</view>
+      <view class="day-item {{day == 3?'day-item-choose':''}}" bindtap="choose" id="3">三天</view>
+      <view class="day-item {{day == 7?'day-item-choose':''}}" bindtap="choose" id="7">一周</view>
+      <view class="start" bindtap="start">start</view>
+    </swiper-item>
   </swiper>
 </view>

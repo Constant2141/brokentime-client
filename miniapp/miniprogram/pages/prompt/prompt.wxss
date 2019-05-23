@@ -41,8 +41,8 @@ swiper-item{
   letter-spacing: 2px;
 }
 .text-3{
-  margin-top:150rpx;
-  margin-bottom: 124rpx;
+  margin-top:120rpx;
+  margin-bottom: 100rpx;
   text-align: center;
   width: 100%;
   font-size: 18px;
@@ -80,4 +80,16 @@ swiper-item{
   color:#ffffff;
   font-size: 20px;
   display: inline-block;
+}
+.start{
+  width:344rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #414141;
+  font-size: 36rpx;
+  background: #ffffff;
+  border-radius: 20px;
+  margin-left:213rpx;
+  margin-top: 110rpx;
 }

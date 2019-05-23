@@ -1,13 +1,31 @@
 // miniprogram/pages/prompt/prompt.js
 var app = getApp();
+const query = wx.createSelectorQuery();
 Page({
-
+    
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: getApp().globalData.userInfo 
+    userInfo: getApp().globalData.userInfo ,
+    day:1,//判断用户选择的天数
   },
+
+
+//用户选择天数
+  choose:function(e){
+    // console.log(e);
+    this.setData({
+      day:e.target.id
+    })
+  },
+  
+//选择完周期点击开始按钮
+  start:function(e){
+      console.log(this.data.day)
+
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
