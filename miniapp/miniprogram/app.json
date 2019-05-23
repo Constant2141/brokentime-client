@@ -1,15 +1,15 @@
-{
+ {
   "pages": [
+    "pages/prompt/prompt",
     "pages/homepage/homepage",
     "pages/comment/comment",
     "pages/editortime/editortime",
     "pages/newCard/newCard",
     "components/warn/warn",
-    "pages/prompt/prompt",
     "pages/settime/settime",
     "pages/index/index",
-    "pages/login/login"
-    
+    "pages/login/login",
+    "pages/setBrokenTime/setBrokenTime"
   ],
   "window": {
     "backgroundColor": "#dddddd",

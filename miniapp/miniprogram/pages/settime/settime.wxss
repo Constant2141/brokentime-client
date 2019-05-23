@@ -37,3 +37,16 @@
 .not-first-node:first-child{
   margin-top: -25rpx;
 }
+.button-wrap{
+  width: 100%;
+  text-align: center;
+}
+.next-button{
+  display: inline-block;
+  background-color: #ffffff;
+  width: 480rpx;
+  height: 80rpx;
+  border-radius: 20px;
+  line-height: 80rpx; 
+  margin: 84rpx 0 84rpx 0;
+}
