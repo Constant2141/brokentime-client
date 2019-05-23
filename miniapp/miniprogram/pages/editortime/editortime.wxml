@@ -3,7 +3,7 @@
 <image class='bg-card'></image>
 <view class='time'>
   <font class='date'>第一天</font>
-  <image class='dot' src='./imgs/dot.png' bindtap='clickDot' ></image>
+  <image class='dot' src='http://pryl3ebd5.bkt.clouddn.com/dot.png' bindtap='clickDot' ></image>
   
   <!-- <font class='week'>星期四</font> -->
 </view>
@@ -13,14 +13,16 @@
     <view class='top-line'>
       <font class="close-card" 
         data-id="{{item.id}}" 
-        bindtap="delCard">
+        catchtap="delCard">
       </font>
       <picker
         class="top-picker"
         mode="time"
         value="{{item.timeStart}}"
         data-id="{{item.id}}"
-        bindtap = "clickCard"
+        start="00:00"
+        end="23:59"
+        catchtap = "clickCard"
         bindchange="bindTimeStartChange"
       >
         <font class="time-start">{{item.timeStart}}</font>
@@ -32,21 +34,22 @@
       class='text'
       bindblur="bindTextAreaBlur" 
       auto-height 
-      auto-focus 
-      placeholder="点击编辑"
-      placeholder-class="placeholder"
-      adjust-position
+      placeholder="{{isTapX?' ':'点击编辑'}}"
+      disabled="{{isTapX?true:false}}"
+      placeholder-class="{{isTapX?'placeholder1':'placeholder2'}}"
       value='{{item.val}}'
       maxlength="54" />
       <view class='bottom-line'>
-        <image src="./imgs/time@3x.png"></image>
+        <image src="http://pryl3ebd5.bkt.clouddn.com/time@3x.png"></image>
       </view>
       <view class='card-time'>
         <picker
           mode="time"
           value="{{timeEnd}}"
           bindchange='bindTimeEndChange'
-          bindtap = "clickCard"
+          start="00:00"
+          end="23:59"
+          catchtap = "clickCard"
           data-id="{{item.id}}"
         >
         <view>

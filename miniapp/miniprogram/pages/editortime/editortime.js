@@ -37,7 +37,8 @@ Page({
       },
     ],
     cardID:0,
-    isDel:false
+    isDel:false,
+    isTapX:false,
   },
 
   /**
@@ -69,12 +70,16 @@ Page({
       cards:cards
     })
   },
+  changeIsTapX(e){
+    console.log(e.detail)
+  },
   delCard(e){
     this.clickCard(e);
-
+    console.log(this.data.isDel);
     
     this.setData({
-      isDel:!this.data.isDel
+      isDel:true,
+      isTapX:true
     })
     
   },
@@ -146,7 +151,13 @@ Page({
     return mins
   },
   confirm(e){
-    if(e.detail){
+    console.log(e.detail.confirm)
+    this.setData({
+      isTapX:e.detail.isTapX,
+      isDel:false
+    })
+    
+    if(e.detail.confirm){
       this.confirmDelCard()
     }
   },

@@ -1,14 +1,14 @@
 <view class="bg"></view>
 <view class="switch-bar">
-  <image class="left-arrow {{isShowLeftArrow?['show']:['hide']}}" src="./imgs/left.png" bindtap="toLeft"></image>
+  <image class="left-arrow {{isShowLeftArrow?['show']:['hide']}}" src="http://pryl3ebd5.bkt.clouddn.com/left.png" bindtap="toLeft"></image>
   <font class="switch-date">4.25 </font>
   <font class="switch-week">星期四</font>
-  <image class="right-arrow {{isShowRightArrow?['show']:['hide']}}" src="./imgs/right.png" bindtap="toRight"></image>
+  <image class="right-arrow {{isShowRightArrow?['show']:['hide']}}" src="http://pryl3ebd5.bkt.clouddn.com/right.png" bindtap="toRight"></image>
 </view>
 <swiper class="swiper-wrap" skip-hidden-item-layout="true" current="{{index==-1?days.length-1:index}}" style="height:{{height}}" bindchange="change">
-  <block wx:for="{{days}}" wx:key="*this" wx:for-item="cardList">
+  <block wx:for="{{days}}" wx:key="*this" wx:for-item="cardList" wx:key="key1">
     <swiper-item >
-      <view class="swiper-item"  wx:for="{{cardList}}" wx:for-item="card">
+      <view class="swiper-item"  wx:for="{{cardList}}" wx:for-item="card" wx:key="key2">
         <view class="card-wrap" hover-class="" hover-stop-propagation="false">
           <view class="card {{card.isComment?['finish']:['no-finish']}} ">
             <!-- <view class="left-dot"></view>
