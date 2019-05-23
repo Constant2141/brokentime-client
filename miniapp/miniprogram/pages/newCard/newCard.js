@@ -16,6 +16,11 @@ Page({
   onLoad: function (options) {
 
   },
+  clickPicker(){
+    this.setData({
+      timeEnd:'00:00'
+    })
+  },
   clickDot() {
     this.setData({
       isClickDot: !this.data.isClickDot,

@@ -55,6 +55,14 @@ Page({
         val2:'',
         isComment:false,
         point:0
+      },{
+        id:3,
+        timeStart:'6:30',
+        timeEnd:'6:45',
+        val:'早起背单词',
+        val2:'',
+        isComment:false,
+        point:0
       }],[{
         id:0,
         timeStart:'6:30',
@@ -177,9 +185,12 @@ Page({
   },
   change(e){
     const CARD = 260 //一个卡片的高度
-    let height = this.data.days[e.detail.current].length*CARD+'rpx';
+    let height = this.data.days[e.detail.current].length*CARD;
+    if(this.data.days[e.detail.current].length >= 5){
+      height+=50
+    }
     this.setData({
-      height:height
+      height:height+'rpx'
     })
     this.setData({
       index:e.detail.current
@@ -202,10 +213,12 @@ Page({
   },
   onLoad: function (options) {
     const CARD = 260 //一个卡片的高度
-    let height = this.data.days[0].length*CARD+'px';
-    
+    let height = this.data.days[this.data.days.length-1].length*CARD
+    if(this.data.days[this.data.days.length-1].length >= 5){
+      height+=50
+    }
     this.setData({
-      height:height
+      height:height+'rpx'
     })
 
     this.setData({

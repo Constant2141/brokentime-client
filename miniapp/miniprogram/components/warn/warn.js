@@ -17,18 +17,22 @@ Component({
     isClose:false,
   },
   methods: {
-    close(){
+    close(){   
+      this.triggerEvent('myevent',{confirm:false,isTapX:false})
       this.setData({
-        isClose:!this.data.isClose
+        isClose:!this.data.isClose,
       })
     },
     confirm(){
       if(this.data.turnBackTo ==''){
-        this.close();
-        this.triggerEvent('myevent',true)
+        this.setData({
+          isClose:!this.data.isClose,
+        })
+        this.triggerEvent('myevent',{confirm:true,isTapX:false})
         return true
       }
       else {
+        
         wx.redirectTo({
           url: '../../'+this.data.turnBackTo,
           success: (result)=>{

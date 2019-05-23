@@ -3,7 +3,7 @@
 <image class='bg-card'></image>
 <view class='time'>
   <font class='date'>新建日程</font>
-  <image class='dot dot-rotate' src='./imgs/dot.png' bindtap='clickDot' ></image>
+  <image class='dot dot-rotate' src='http://pryl3ebd5.bkt.clouddn.com/dot.png' bindtap='clickDot' ></image>
   <!-- <font class='week'>星期四</font> -->
 </view>
 <view class='card-wrap'>
@@ -26,21 +26,22 @@
       class='text'
       bindblur="bindTextAreaBlur" 
       auto-height 
-      auto-focus 
-      placeholder="点击编辑"
+      focus
       placeholder-class="placeholder"
-      adjust-position
       value='{{val}}'
       maxlength="54" />
       <view class='bottom-line'>
-        <image src="./imgs/time@3x.png"></image>
+        <image src="http://pryl3ebd5.bkt.clouddn.com/time@3x.png"></image>
         <button form-type="submit"  bindtap="submitCard">完成</button>
       </view>
       <view class='card-time'>
         <picker
           mode="time"
           value="{{timeEnd}}"
+          start="00:00"
+          end="23:59"
           bindchange='bindTimeEndChange'
+          bindtap="clickPicker"
         >
         <view>
           <font class="picker">{{timeEnd}}</font>

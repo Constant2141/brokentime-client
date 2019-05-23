@@ -106,9 +106,16 @@ page{
   display: none;
   width: 0;
 }
-.placeholder{
+.placeholder2{
   font-size: 32rpx;
+  z-index: -1;
   color: #FFFFFF;
+  /* text-decoration:underline;  */
+}
+.placeholder1{
+  font-size: 32rpx;
+  z-index: -1;
+  opacity: 0;
   /* text-decoration:underline;  */
 }
 .bottom-line{
