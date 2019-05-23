@@ -1,9 +1,10 @@
-{
+ {
   "pages": [
-    "pages/settime/settime",
     "pages/prompt/prompt",
-    "pages/homepage/homepage",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/setBrokenTime/setBrokenTime",
+    "pages/settime/settime",
+    "pages/homepage/homepage"
   ],
   "window": {
     "backgroundColor": "#dddddd",

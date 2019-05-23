@@ -1,0 +1,18 @@
+.time-title{
+    width:750rpx;
+    height: 50rpx; 
+    text-align: center;
+    margin-top:5rpx;
+}
+.day{
+    font-size: 20px;
+    color: #ffffff;
+    display: inline-block;
+    margin-right: 15rpx;
+}
+.week{
+    font-size: 16px;
+    color: #ffffff;
+    display: inline-block;
+    margin-left: 20rpx;
+}

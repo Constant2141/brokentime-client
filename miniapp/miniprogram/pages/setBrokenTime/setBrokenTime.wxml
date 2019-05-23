@@ -1,0 +1,6 @@
+<view class="container">
+  <view class='time-title'>
+    <view class='day'>4.25</view>
+    <view class='week'>星期四</view>
+  </view>
+</view>

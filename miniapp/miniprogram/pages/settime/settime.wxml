@@ -8,4 +8,7 @@
   <view class='time-line'>
     <timeline wx:for="{{timeline}}" wx:key="{{index}}" timeline="{{timeline[index]}}"></timeline>
   </view>
+  <view class='button-wrap'>
+    <view class='next-button'>next</view>
+  </view>
 </view>
