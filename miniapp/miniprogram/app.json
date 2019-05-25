@@ -1,8 +1,8 @@
- {
+{
   "pages": [
+    "pages/history/history",
     "pages/editortime/editortime",
     "pages/homepage/homepage",
-    "pages/comment/comment",
     "pages/newCard/newCard",
     "pages/comment/comment",
     "components/warn/warn",

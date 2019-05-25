@@ -3,9 +3,9 @@
 <image class='bg-card'></image>
 <view class='time'>
   <font class='date'>第一天</font>
-  <image class='dot' src='http://pryl3ebd5.bkt.clouddn.com/dot.png' bindtap='clickDot' ></image>
-  
-  <!-- <font class='week'>星期四</font> -->
+  <navigator class="dot" target="" url='../../pages/newCard/newCard' hover-class="navigator-hover" open-type="navigate">
+    <image class='dot' src='http://pryl3ebd5.bkt.clouddn.com/dot.png'></image>
+  </navigator>
 </view>
 <view class='card-wrap' wx:for="{{cards}}"  wx:key="id">
   <view class='card'>
@@ -44,7 +44,8 @@
       </view>
       <view class='card-time'>
         <picker
-          mode="time"
+          mode="selector"
+          range="{{range}}"
           value="{{timeEnd}}"
           bindchange='bindTimeEndChange'
           start="00:00"

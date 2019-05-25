@@ -26,17 +26,18 @@ Page({
         val:""
       },
       {
-        timeStart: "12:00",
+        timeStart: "11:00",
         timeEnd: '添加持续时间',
         val:""
       },
       {
-        timeStart: "11:00",
+        timeStart: "12:00",
         timeEnd: '添加持续时间',
         val:""
       },
     ],
     cardID:0,
+    range:Array,
     isDel:false,
     isTapX:false,
   },
@@ -47,6 +48,17 @@ Page({
   onLoad: function (options) {
     let app = getApp();
     let arrayCard = this.data.cards;
+    let range=[];
+    for(let i = 1 ; i <= 1440 ; i++){
+      if(i!=1)
+      range.push(i+'mins');
+      else
+      range.push(i+'min')
+    }
+    this.setData({
+      range:range
+    })
+    console.log(range)
     if(app.globalData.newCard!=""){
       arrayCard.push(app.globalData.newCard)
       this.setData({
@@ -61,6 +73,7 @@ Page({
     cards.sort((a,b)=>{
       return a.timeStart>=b.timeStart? true:false
     })
+    
     cards.forEach(function(val,idx){
       val.id = idx
     })
@@ -91,60 +104,30 @@ Page({
     })
     
   },
-  clickDot(){
-    wx.redirectTo({
-      url: '../../pages/newCard/newCard',
-      success: (result)=>{
-        
-      },
-      fail: ()=>{},
-      complete: ()=>{}
-    });
-  },
   clickCard(e){
     this.setData({
       cardID: e.currentTarget.dataset.id
     })
   },
-  // submitCard(e){
-  //   let ID = e.currentTarget.dataset.id;
-  //   let val = `cards[${ID}].val`;
-  //   this.setData({
-  //     [val]: ID
-  //   });
-  //   console.log(this.data.cards[`${ID}`].val)
-  // },
   bindTimeStartChange(e){
     let ID = this.data.cardID;
     let timeStart =`cards[${ID}].timeStart`
-    // setTimeout(()=>{
       this.setData({
         [timeStart]: e.detail.value
       });
-      
       console.log(this.data.cards[ID].timeStart)
-    // },0)
   },
   bindTimeEndChange(e) {
     this.setData({
       timeEnd:e.detail.value,
     });
-    // setTimeout(() => {
       let ID = this.data.cardID;
       let timeEnd =`cards[${ID}].timeEnd`
       this.setData({
         [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
       });
     console.log(this.data.timeEnd)
-
-    // },0)
   },
-  // setDataValue(name,value){
-  //   this.setData({
-  //     name: value
-  //   });
-  //   console.log(this.data.timeEnd)
-  // },
   getMins(time){
     let [hour, minute] = time.split(':');
     let mins = parseInt(hour) * 60 + parseInt(minute);

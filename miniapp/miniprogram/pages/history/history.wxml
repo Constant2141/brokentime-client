@@ -1,0 +1,17 @@
+<swiper class=""  bindchange="currentChange" next-margin="85rpx" style="width:100%;height:770rpx;background:red;position:absolute;top: 50%;margin-top: -385rpx">
+  <swiper-item class="flex" item-id="" >
+    <view class="current-card" style="width:580rpx;background:blue">
+      
+    </view>
+  </swiper-item>
+  <swiper-item class="flex" item-id="" >
+      <view class="" style="width:580rpx;background:yellow">
+        
+      </view>
+  </swiper-item>
+  <swiper-item class="flex" item-id="" >
+      <view class="" style="width:580rpx;background:green">
+        
+      </view>
+  </swiper-item>
+</swiper>

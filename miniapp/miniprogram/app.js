@@ -2,6 +2,7 @@
 const { api } = require('./config')
 App({
   globalData: {
+    newCard:''
   },
 
   doLogin: function () {
