@@ -5,11 +5,73 @@ page{
 }
 .flex{
   display: flex;
-  justify-content: center;align-items: center;
+  /* justify-content: center; */
+  align-items: center;
+  overflow: unset;
+  position: absolute;
+  z-index: -1;
 }
-.current-card{
-  height: 770rpx;
+.card{
+  background:linear-gradient(#484848,#333333);
+  box-shadow: 0rpx 6rpx 12rpx rgba(0,0,0,0.16);
+  display: flex;
+  justify-content: center;
 }
-.swiper-item >view{
+.active-card{
+  height: 750rpx;
+  width:550rpx;
+  margin: 0 auto;
+}
+.next-card{
   height: 560rpx;
+  width:550rpx;
+  position: absolute;
+  z-index: 100;
+  /* left: -45rpx; */
+}
+.mgl{
+  left: -55rpx;
+}
+.mgr{
+  z-index: 100;
+  right: -55rpx;
+  position: absolute;
+}
+.pre-card{
+  height: 560rpx;
+  width:550rpx;
+  position: absolute;
+  right: 0;
+}
+.card-img{
+  width: 500rpx;
+  height: 500rpx;
+  margin-top: 40rpx;
+  position: relative;
+  overflow: unset;
+}
+.circle{
+  position: absolute;
+  top: 420rpx;
+  left: 50%;
+  margin-left: -77rpx;
+  box-sizing: border-box;
+  width: 154rpx;
+  height: 154rpx;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 24rpx solid #383838;
+  /* box-shadow: #000000 0 -6rpx 12rpx 0.5; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22rpx;
+  color: #000000;
+}
+.time{
+  font-size: 38rpx;
+  color: #ffffff;
+  position: absolute;
+  right: 135rpx;
+  bottom: 100rpx;
 }
