@@ -34,9 +34,13 @@ App({
               'content-type': 'application/json'
             },
             success: function (res) {
-              console.log(res.data.msg)
+              console.log(res.data)
               wx.setStorageSync("skey", res.data.skey)
-              // console.log('储存skey成功')
+              if(res.data.flag == 1){
+                console.log('不是第一次进入')
+              }else{
+                console.log('第一次进入')
+              }
             }
           })
         } else {

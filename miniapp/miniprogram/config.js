@@ -5,7 +5,7 @@ const baseurl = 'http://localhost:3333/'
 
 let  api = {};
 
-api.login = baseurl + 'api/login';
+api.login = baseurl + 'login';
 
 
 module.exports = {
