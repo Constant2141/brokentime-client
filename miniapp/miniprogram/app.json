@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/newCard/newCard",
-    "pages/editortime/editortime",
     "pages/homepage/homepage",
+    "pages/editortime/editortime",
+    
+    "pages/settime/settime",
+    "pages/newCard/newCard",
+    "pages/index/index",
     "components/warn/warn",
     "pages/prompt/prompt",
-    "pages/settime/settime",
-    "pages/index/index",
     "pages/login/login"
     
   ],
