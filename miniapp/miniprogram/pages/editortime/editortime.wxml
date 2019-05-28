@@ -37,7 +37,7 @@
       placeholder="{{isTapX?' ':'点击编辑'}}"
       disabled="{{isTapX?true:false}}"
       placeholder-class="{{isTapX?'placeholder1':'placeholder2'}}"
-      value='{{item.val}}'
+      value='{{item.affair}}'
       maxlength="54" />
       <view class='bottom-line'>
         <image src="http://pryl3ebd5.bkt.clouddn.com/time@3x.png"></image>

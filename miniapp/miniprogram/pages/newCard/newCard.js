@@ -6,7 +6,7 @@ Page({
   data: {
     timeStart: '添加时间',
     timeEnd: '',
-    val: '',
+    affair: '',
     isClickDot: false,
   },
 
@@ -43,7 +43,7 @@ Page({
   },
   bindTextAreaBlur(e) {
     this.setData({
-      val: e.detail.value
+      affair: e.detail.value
     })
     console.log(e.detail.value)
   },
@@ -64,7 +64,7 @@ Page({
           const newCard = {
             timeStart: _this.data.timeStart,
             timeEnd: _this.data.timeEnd,
-            val: _this.data.val,
+            affair: _this.data.affair,
           }
           return resolve(newCard);
         // }, 50)

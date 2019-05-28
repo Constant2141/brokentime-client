@@ -28,7 +28,7 @@
       auto-height 
       focus
       placeholder-class="placeholder"
-      value='{{val}}'
+      value='{{affair}}'
       maxlength="54" />
       <view class='bottom-line'>
         <image src="http://pryl3ebd5.bkt.clouddn.com/time@3x.png"></image>
