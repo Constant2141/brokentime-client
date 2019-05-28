@@ -1,0 +1,6 @@
+<!--miniprogram/pages/journey/journey.wxml-->
+<view class='container'>
+ <image src='../../images/left.png' class='left' ></image>
+    <view class='text'>start your journey</view>
+  <!-- <image src='../../images/right.png' class='right' ></image> -->
+</view>

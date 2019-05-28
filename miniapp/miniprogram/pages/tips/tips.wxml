@@ -1,0 +1,7 @@
+<!--miniprogram/pages/tips/tips.wxml-->
+<view class='container'>
+  <view class='how'>如何使用?</view>
+
+  <view class='text' wx:for='{{text}}' wx:key = ''>{{item}}</view>
+
+</view> 

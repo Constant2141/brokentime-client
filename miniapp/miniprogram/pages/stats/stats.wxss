@@ -1,0 +1,13 @@
+/* miniprogram/pages/stats/stats.wxss */
+.stats-wrapper image{
+  width: 570rpx;
+  height: 832rpx;
+}
+
+.text{
+  font-size: 16px;
+  color: white;
+  white-space: pre-wrap;
+  text-align: center;
+  
+}
