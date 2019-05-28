@@ -1,15 +1,14 @@
 {
   "pages": [
     "pages/setBrokenTime/setBrokenTime",
+    "pages/prompt/prompt",
     "pages/history/history",
     "pages/editortime/editortime",
     "pages/homepage/homepage",
     "pages/newCard/newCard",
     "components/warn/warn",
-    
     "pages/settime/settime",
     "pages/index/index",
-    "pages/prompt/prompt",
     "pages/login/login"
     
 
