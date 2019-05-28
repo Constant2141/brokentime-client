@@ -25,7 +25,7 @@ Page({
   start:function(e){
       console.log(this.data.day)
       wx.request({
-        url:api.createPeriod,
+        url: api.createPeriod,
         data:{
           'skey':wx.getStorageSync('skey'),
           'lastTime':this.data.day
