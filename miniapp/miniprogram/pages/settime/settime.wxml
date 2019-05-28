@@ -1,6 +1,8 @@
 <view class='container'>
-  <view class='edit' style='background:url(../../images/write.png);background-repeat:no-repeat;'>
+  <navigator class="edit" target="" url="../../pages/editortime/editortime" hover-class="navigator-hover" open-type="navigate">  
+    <view class='edit' style='background:url(../../images/write.png);background-repeat:no-repeat;'>
   </view>
+  </navigator>
   <view class='date'>
     <view class='day'>{{day}}</view>
     <view class='week'>{{week}}</view>

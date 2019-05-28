@@ -27,7 +27,7 @@ Page({
   onLoad: function (options) {
     let _this =this;
     wx.request({
-      url:'http://localhost:3333/api/history',
+      url:'http://192.168.1.101:3333/api/history',
       data:{
         "skey":"fd65082ca146700cbee50668bf326d6c3d7986ee5e6d84536cfaebc4c21e6c0ccc3c215161f18bdb5d0ee34bfe92b7436e4620dd78b3005eb57a1a132667c068604bfedb3058ed5934d5577ae2e6f3fb7a517aec57998675e640ca0beb93d8a0",
     },

@@ -1,6 +1,64 @@
 <view class="container">
-  <view class='time-title'>
-    <view class='day'>4.25</view>
-    <view class='week'>星期四</view>
+  <view wx:for="{{issue}}" class="period">
+    <view class='time-title'>
+      <view class='day'>{{item.day}}</view>
+      <view class='week'>{{item.week}}</view>
+    </view>
+    <!-- 将时间线分为左右两个部分布局，左边为大事件，右边为可填写的破碎时间 -->
+    <view class="time-line" >
+      <view class="line-left">
+        <view class="line-card" wx:for="{{item.bigDeal}}">
+            <view class="big-deal">
+              <view class="big-time">
+                <view class="time-label">{{item.timeLabel}}</view>
+                <view class="time">{{item.time}}</view>
+              </view>
+              <view class="big-issue">{{item.issue}}</view>
+              <view class="big-lasttime">{{item.lasttime}}</view>
+            </view>
+            <view class="line">
+              <view class="line-top"></view>
+              <view class="line-bottom"></view>
+            </view>
+        </view>
+        </view>
+        
+      <view class="line-right" >
+        <view class="card-box" wx:for="{{item.brokenTime}}">
+          <view class="position-box">
+            <view class="line-right-left"></view>
+            <view class="line-right-bottom"></view>
+            <view class="brokenTime">{{item.timecard}}</view>
+            <view class="broken-text">
+              <!-- <textarea 
+              row="3"
+              class="broken-textarea"
+              value="{{item.brokenIssue}}" 
+              placeholder="点击编辑" 
+              placeholder-class="placeholder" 
+              maxlength="20" >
+              </textarea>  -->
+              <input 
+              type="text" 
+              placeholder="点击编辑" 
+              placeholder-class="placeholder" 
+              bindinput="bindKeyInput" 
+              id="{{item.id}}" 
+              value="{{item.brokenIssue}}"
+              maxlength="20">
+              </input>
+            </view>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+  </view>  
+  
+  <view class="button" bindtap="save">
+    save
   </view>
+  <warn wx:if="{{isfinish}}" content="是否确认填写的日程信息完整？" turnBackTo="pages/homepage/homepage"></warn>
+  <warn wx:if="{{isback}}" content="您尚未保存已填写的日程消息，是否返回上一节面？"></warn>
 </view>
+ 

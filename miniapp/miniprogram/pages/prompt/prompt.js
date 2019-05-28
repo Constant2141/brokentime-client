@@ -23,7 +23,16 @@ Page({
 //选择完周期点击开始按钮
   start:function(e){
       console.log(this.data.day)
-
+      if(this.data.day == 1){
+        getApp().globalData.lastTime = "一"
+      }else if(this.data.day == 3){
+        getApp().globalData.lastTime = "三"
+      }else if(this.data.day == 7){
+        getApp().globalData.lastTime = "七"
+      }
+      wx.redirectTo({
+        url:'../../pages/editortime/editortime'
+      })
   },
 
 

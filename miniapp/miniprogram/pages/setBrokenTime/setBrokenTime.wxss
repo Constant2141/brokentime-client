@@ -1,8 +1,13 @@
+
+
 .time-title{
     width:750rpx;
     height: 50rpx; 
     text-align: center;
     margin-top:5rpx;
+}
+.period{
+    margin-bottom:30rpx;
 }
 .day{
     font-size: 20px;
@@ -15,4 +20,131 @@
     color: #ffffff;
     display: inline-block;
     margin-left: 20rpx;
+}
+.time-line{
+    width:100%;
+    margin-top: 40rpx;
+}
+.line-left{
+    width:53%;
+    /* height: 90vh; */
+    display: inline-block;
+    font-size:32rpx;
+    color:#848484;
+    vertical-align: top;
+}
+.big-deal{
+    width:75%;
+    text-align: right;
+    margin-left: 10%;
+    margin-right: 5%;
+    display: inline-block;
+}
+.big-time{
+    margin-bottom: 20rpx;
+}
+.time-label{
+    display: inline-block;
+    width:70%;
+
+}
+.time{
+    width:30%;
+    display: inline-block;
+}
+.big-issue{
+    margin-bottom:20rpx;
+}
+.big-lasttime{
+    background: #848484;
+    color: #000000;
+    font-size:22rpx;
+    height:32rpx;
+    line-height: 32rpx;
+    width: 92rpx;
+    text-align: center;
+    border-radius: 20px;
+    float: right;
+    clear: both;
+}
+.line{
+    width:10%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top; 
+}
+.line-top{
+    width: 20rpx;
+    height: 20rpx;
+    background: #848484;
+    transform: rotate(45deg);
+}
+.line-bottom{
+    width:0rpx;
+    margin-left:9rpx;
+    height: 300rpx;
+    border:1rpx #848484 solid;
+}
+.line-right{
+    width:47%;  
+    /* height:90vh;   */
+    display: inline-block;  
+} 
+.card-box{
+    height: 320rpx;
+    position: relative;
+}
+.position-box{
+    position: absolute;
+    top:150rpx;
+    left:-37rpx;
+}
+.line-right-left{
+    width: 20rpx;
+    height: 20rpx;
+    background: #ffffff;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+.line-right-bottom{
+    width:112rpx;
+    height:0;
+    border:1rpx solid #ffffff;
+    display: inline-block;
+    vertical-align: middle;
+}
+.brokenTime{
+    width:186rpx;
+    height: 40rpx;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background: #ffffff;
+    font-size: 32rpx;
+    line-height: 40rpx;
+    color:#000000;
+}
+.broken-text{
+    /* margin-top: 10rpx; */
+    color:#ffffff;
+    font-size:32rpx;
+    width:200rpx;
+    position:relative;
+    left:130rpx;
+}
+.placeholder{
+    text-align: center;
+    color: #ffffff;
+}
+/* .broken-textarea{
+     width:150rpx;
+} */
+.button{
+    width: 478rpx;
+    height: 80rpx;
+    background: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 80rpx;
+    margin: 70rpx 0 70rpx 0;
 }

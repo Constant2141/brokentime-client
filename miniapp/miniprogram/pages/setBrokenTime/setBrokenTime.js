@@ -5,9 +5,116 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // day:"4.25",
+    // week:'星期四',
+    isfinish:false,
+    isback:false,
+    issue:[{
+      day:'4.25',
+      week:'星期四',
+      bigDeal:[{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      },{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      },{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      },{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      },{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      }],
+      brokenTime:[{
+        id:0,
+        timecard:'6.00-6.45',
+        brokenIssue:''
+      },{
+        id:1,
+        timecard:'6.00-6.45',
+        brokenIssue:''
+      },{
+        id:2,
+        timecard:'6.00-6.45',
+        brokenIssue:''
+      },{
+        id:3,
+        timecard:'6.00-6.45',
+        brokenIssue:''
+      }]
+    },
+    {
+      day:'4.26',
+      week:'星期五',
+      bigDeal:[{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      },{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      },{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      },{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      },{
+        timeLabel:"早晨",
+        time:'6:00',
+        issue:'刷牙洗脸 早起背单词',
+        lasttime:'10min'
+      }],
+      brokenTime:[{
+        id:0,
+        timecard:'6.00-6.45',
+        brokenIssue:''
+      },{
+        id:1,
+        timecard:'6.00-6.45',
+        brokenIssue:''
+      },{
+        id:2,
+        timecard:'6.00-6.45',
+        brokenIssue:''
+      },{
+        id:3,
+        timecard:'6.00-6.45',
+        brokenIssue:''
+      }]
+    }]
 
   },
-
+  save(e){
+    this.setData({
+      isfinish:true
+    })
+  },
+  bindKeyInput(e){
+    // console.log(e)
+    // let id = parseInt(e.currentTarget.id);
+    // console.log(this.data.bigDeal[id].brokenIssue);
+  },
   /**
    * 生命周期函数--监听页面加载
    */

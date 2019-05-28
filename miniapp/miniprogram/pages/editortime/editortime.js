@@ -4,43 +4,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cards:[
-      {
-        timeStart: "06:00",
-        timeEnd: '',
-        val:""
-      },
-      {
-        timeStart: "06:45",
-        timeEnd: '',
-        val:""
-      },
-      {
-        timeStart: "10:00",
-        timeEnd: '',
-        val:""
-      },
-      {
-        timeStart: "09:00",
-        timeEnd: '',
-        val:""
-      },
-      {
-        timeStart: "11:00",
-        timeEnd: '',
-        val:""
-      },
-      {
-        timeStart: "12:00",
-        timeEnd: '',
-        val:""
-      },
-    ],
-    cardID:0,
-    range:[],
-    isDel:false,
-    isTapX:false,
-    num:'一'
+    cards: Array,
+    cardID: 0,
+    range: [],
+    isDel: false,
+    isTapX: false,
+    num: "一",
+    isNext: Boolean
   },
 
   /**
@@ -48,137 +18,183 @@ Page({
    */
   onLoad: function (options) {
     let app = getApp();
-    
-    // let arrayCard = this.data.cards;
-    // let range=[];
-    // for(let i = 1 ; i <= 1440 ; i++){
-    //   if(i!=1)
-    //   range.push(i+'mins');
-    //   else
-    //   range.push(i+'min')
-    // }
-    // this.setData({
-    //   range:range
-    // })
-    // console.log(range)
-    if(app.globalData.newCard!=""){
+    let arrayCard = app.globalData.arrayCard;
+
+    this.setData({
+      num: app.globalData.order
+    })
+
+    if (app.globalData.newCard != "") {
       arrayCard.push(app.globalData.newCard)
       this.setData({
-        cards:arrayCard
+        cards: arrayCard
       })
-    }else{
+    } else {
       console.log(app.globalData.newCard)
     }
 
     /***按时间分配id ***/
-    let cards = this.data.cards;
-    cards.sort((a,b)=>{
-      return a.timeStart>=b.timeStart? true:false
-    })
-    
-    cards.forEach(function(val,idx){
-      val.id = idx
-    })
-    console.log(cards)
+    if (arrayCard) {
 
-    this.setData({
-      cards:cards
-    })
-
-    switch(app.globalData.order){
-      case "": 
-
-    }
-  },
-  inputChange(e){
-    this.setData({
-      timeEnd:e.detail.value,
-    });
-      let ID = this.data.cardID;
-      let timeEnd =`cards[${ID}].timeEnd`
-      // this.setData({
-      //   [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
-      // });
-      this.setData({
-        [timeEnd]:this.data.timeEnd+'min'
+      arrayCard.sort((a, b) => {
+        return a.timeStart >= b.timeStart ? true : false
       })
+
+      arrayCard.forEach(function (val, idx) {
+        val.id = idx
+      })
+      console.log(arrayCard)
+
+      this.setData({
+        cards: arrayCard
+      })
+    }
+
+  },
+  inputChange(e) {
+    this.setData({
+      timeEnd: e.detail.value,
+    });
+    let ID = this.data.cardID;
+    let timeEnd = `cards[${ID}].timeEnd`
+    // this.setData({
+    //   [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
+    // });
+    this.setData({
+      [timeEnd]: this.data.timeEnd + 'min'
+    })
     console.log(this.data.timeEnd)
   },
-  changeIsTapX(e){
+  changeIsTapX(e) {
     console.log(e.detail)
   },
-  delCard(e){
+  delCard(e) {
     this.clickCard(e);
     console.log(this.data.isDel);
-    
+
     this.setData({
-      isDel:true,
-      isTapX:true
+      isDel: true,
+      isTapX: true
     })
-    
+
   },
-  confirmDelCard(){
+  confirmDelCard() {
 
     let delCards = this.data.cards.filter(card => card.id != this.data.cardID);
-    this.setData({      
+    this.setData({
       cards: delCards,
     })
-    
+
   },
-  bindTextAreaBlur(e){
-    
+  bindTextAreaBlur(e) {
+
     this.setData({
       cardID: e.currentTarget.dataset.id
     })
     let ID = this.data.cardID;
     let val = `cards[${ID}].val`
     this.setData({
-      [val]:e.detail.value
+      [val]: e.detail.value
     })
   },
-  save(){
+  save() {
     let app = getApp();
-    app.globalData.allCards.push(this.data.cards);
+    let _this = this;
+    app.globalData.allCards.push(app.globalData.arrayCard);
+    app.globalData.arrayCard = [];
+    switch (app.globalData.order) {
+      case `${app.globalData.lastTime}`:
+        this.setData({
+          isNext: false
+        }); console.log(this.data.isNext); break;
+      case "一": app.globalData.order = "二"; break;
+      case "二": app.globalData.order = "三"; break;
+      case "三": app.globalData.order = "四"; break;
+      case "四": app.globalData.order = "五"; break;
+      case "五": app.globalData.order = "六"; break;
+      case "六": app.globalData.order = "七"; break;
+      default: break;
+    }
+    _this.setData({
+      num: app.globalData.order,
+    })
+    app.globalData.newCard = ""
     console.log(app.globalData.allCards);
+    if (this.data.isNext) {
+      wx.redirectTo({
+        url: './editortime',
+        success: (result) => {
+        },
+        fail: () => { },
+        complete: () => { }
+      });
+    } else {
+      console.log(app.globalData.allCards)
+      wx.request({
+        url: 'http://192.168.1.101:3333/api/createTable',
+        data: {
+          "skey": "fd65082ca146700cbee50668bf326d6c3d7986ee5e6d84536cfaebc4c21e6c0ccc3c215161f18bdb5d0ee34bfe92b7436e4620dd78b3005eb57a1a132667c068604bfedb3058ed5934d5577ae2e6f3fb7a517aec57998675e640ca0beb93d8a0",
+          "arr":app.globalData.allCards
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        method: 'POST',
+        success(res) {
+          console.log(res)
+          wx.redirectTo({
+            url: '../../pages/settime/settime',
+            success: (result) => {
+              console.log(app.globalData.allCards)
+            },
+            fail: () => { },
+            complete: () => { }
+          });
+        },
+        fail(err){
+          console.log(err)
+        }
+      })
+    }
   },
-  clickCard(e){
+  clickCard(e) {
     this.setData({
       cardID: e.currentTarget.dataset.id
     })
     console.log(this.data.cardID)
   },
-  bindTimeStartChange(e){
+  bindTimeStartChange(e) {
     let ID = this.data.cardID;
-    let timeStart =`cards[${ID}].timeStart`
-      this.setData({
-        [timeStart]: e.detail.value
-      });
-      console.log(this.data.cards[ID].timeStart)
+    let timeStart = `cards[${ID}].timeStart`
+    this.setData({
+      [timeStart]: e.detail.value
+    });
+    console.log(this.data.cards[ID].timeStart)
   },
   bindTimeEndChange(e) {
     this.setData({
-      timeEnd:e.detail.value,
+      timeEnd: e.detail.value,
     });
-      let ID = this.data.cardID;
-      let timeEnd =`cards[${ID}].timeEnd`
-      this.setData({
-        [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
-      });
+    let ID = this.data.cardID;
+    let timeEnd = `cards[${ID}].timeEnd`
+    this.setData({
+      [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
+    });
     console.log(this.data.timeEnd)
   },
-  getMins(time){
+  getMins(time) {
     let [hour, minute] = time.split(':');
     let mins = parseInt(hour) * 60 + parseInt(minute);
     return mins
   },
-  confirm(e){
+  confirm(e) {
     console.log(e.detail.confirm)
     this.setData({
-      isTapX:e.detail.isTapX,
-      isDel:false
+      isTapX: e.detail.isTapX,
+      isDel: false
     })
-    
-    if(e.detail.confirm){
+
+    if (e.detail.confirm) {
       this.confirmDelCard()
     }
   },
@@ -186,7 +202,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**

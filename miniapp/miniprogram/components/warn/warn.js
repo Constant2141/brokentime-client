@@ -29,7 +29,7 @@ Component({
           isClose:!this.data.isClose,
         })
         this.triggerEvent('myevent',{confirm:true,isTapX:false})
-        return true
+        return true 
       }
       else {
         
