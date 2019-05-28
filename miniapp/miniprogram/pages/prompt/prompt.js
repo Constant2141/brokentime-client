@@ -23,7 +23,6 @@ Page({
   
 //选择完周期点击开始按钮
   start:function(e){
-<<<<<<< HEAD
       wx.request({
         url: api.createPeriod,
         data:{
@@ -49,12 +48,6 @@ Page({
           }
         }
       })
-
-=======
-      console.log(this.data.day)
-      wx.setStorageSync('lastTime', this.data.day)
-      
->>>>>>> 71
   },
 
   //点击问号跳转到帮助提示界面
