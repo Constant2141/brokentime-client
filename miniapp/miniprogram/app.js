@@ -2,28 +2,28 @@
 const { api } = require('./config')
 App({
   globalData: {
-    newCard:''
+    newCard:'',
+    skey:''
   },
 
   doLogin: function () {
-    // var skey = wx.getStorageSync('skey') || {};
-    // var userInfo = wx.getStorageSync('userInfo') || {};
+
     wx.login({
       success(res) {
         if (res.code) {
-          wx.getUserInfo({
-            success: function (res) {
-              let userInfo = res.userInfo;
+          // wx.getUserInfo({
+          //   success: function (res) {
+          //     let userInfo = res.userInfo;
 
-              wx.setStorageSync('userInfo', userInfo);//存储userInfo
-              console.log('储存userInfo成功')
-            },
-            fail: function (res) {
-              wx.navigateTo({
-                url: '../login/login',
-              })
-            }
-          })
+          //     wx.setStorageSync('userInfo', userInfo);
+          //     console.log('储存userInfo成功')
+          //   },
+          //   fail: function (res) {
+          //     wx.navigateTo({
+          //       url: '../login/login',
+          //     })
+          //   }
+          // })
           wx.request({
             url: api.login,
             data: {
@@ -36,11 +36,7 @@ App({
             success: function (res) {
               console.log(res.data)
               wx.setStorageSync("skey", res.data.skey)
-              if(res.data.flag == 1){
-                console.log('不是第一次进入')
-              }else{
-                console.log('第一次进入')
-              }
+              getApp().globalData.skey = res.data.skey;
             }
           })
         } else {
@@ -51,42 +47,43 @@ App({
   },
 
 
-  // onLaunch: function () {
-  //   var that = this;
+  onLaunch: function () {
+    var that = this;
 
-  //   if (!wx.cloud) {
-  //     console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-  //   } else {
-  //     wx.cloud.init({
-  //       traceUser: true,
-  //     })
-  //   }
+    if (!wx.cloud) {
+      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+    } else {
+      wx.cloud.init({
+        traceUser: true,
+      })
+    }
 
 
-  //   let skey = wx.getStorageSync('skey')
-  //   if (skey) {
-  //     wx.checkSession({
-  //       success: function () {
-  //         console.log('登录中')
-  //       },
-  //       fail: function () {
-  //         wx.showModal({
-  //           title: '提示',
-  //           content: '登录已过期，请重新登录',
-  //           success: function () {
-  //             that.doLogin()
-  //           }
-  //         })
-  //       }
-  //     })
-  //   } else {
-  //     wx.showModal({
-  //       title: '提示',
-  //       content: '尚未登录，请先登录',
-  //       success: function () {
-  //         that.doLogin()
-  //       }
-  //     })
-  //   }
-  // }
+    let skey = wx.getStorageSync('skey')  //从缓存中得到skey，如果没有则重新登录
+    if (skey) {
+      wx.checkSession({
+        success: function () {
+          console.log('登录中')
+          getApp().globalData.skey = skey;
+        },
+        fail: function () {
+          wx.showModal({
+            title: '提示',
+            content: '登录已过期，请重新登录',
+            success: function () {
+              that.doLogin()
+            }
+          })
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '尚未登录，点击授权登录',
+        success: function () {
+          that.doLogin()
+        }
+      })
+    }
+  }
 })
