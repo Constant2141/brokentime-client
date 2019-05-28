@@ -1,5 +1,6 @@
 // miniprogram/pages/prompt/prompt.js
 var app = getApp();
+const { api } = require("../../config");
 const query = wx.createSelectorQuery();
 Page({
     
@@ -22,17 +23,32 @@ Page({
   
 //选择完周期点击开始按钮
   start:function(e){
-      console.log(this.data.day)
-      if(this.data.day == 1){
-        getApp().globalData.lastTime = "一"
-      }else if(this.data.day == 3){
-        getApp().globalData.lastTime = "三"
-      }else if(this.data.day == 7){
-        getApp().globalData.lastTime = "七"
-      }
-      wx.redirectTo({
-        url:'../../pages/editortime/editortime'
+      wx.request({
+        url: api.createPeriod,
+        data:{
+          'skey':wx.getStorageSync('skey'),
+          'lastTime':this.data.day
+        },
+        method:"POST",
+        success:(res)=>{
+          console.log(res)
+          if(res.data.code == 200){
+            app.doLogin();
+            console.log(this.data.day)
+            if(this.data.day == 1){
+              getApp().globalData.lastTime = "一"
+            }else if(this.data.day == 3){
+              getApp().globalData.lastTime = "三"
+            }else if(this.data.day == 7){
+              getApp().globalData.lastTime = "七"
+            }
+            wx.redirectTo({
+              url:'../../pages/editortime/editortime'
+            })
+          }
+        }
       })
+
   },
 
 
