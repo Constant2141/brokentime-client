@@ -34,6 +34,7 @@ Page({
         success:(res)=>{
           console.log(res)
           if(res.data.code == 200){
+            app.doLogin();
             wx.redirectTo({
               url:'../editortime/editortime'
             })
