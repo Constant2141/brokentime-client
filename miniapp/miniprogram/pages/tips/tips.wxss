@@ -1,0 +1,20 @@
+/* miniprogram/pages/tips/tips.wxss */
+
+.how {
+  margin-top: 60rpx;
+  /* margin-bottom: 100rpx; */
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.text {
+  font-size: 16px;
+  color: #fff;
+  text-align: left;
+  width: 80%;
+  margin: 20rpx;
+  white-space: pre-wrap;
+}

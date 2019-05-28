@@ -56,6 +56,7 @@ App({
 
 
   onLaunch: function () {
+    
     var that = this;
 
     if (!wx.cloud) {
@@ -68,6 +69,8 @@ App({
 
 
     let skey = wx.getStorageSync('skey')  //从缓存中得到skey，如果没有则重新登录
+    // console.log('拿到缓存'+skey);
+
     if (skey) {
       wx.checkSession({
         success: function () {

@@ -23,6 +23,7 @@ Page({
   
 //选择完周期点击开始按钮
   start:function(e){
+<<<<<<< HEAD
       wx.request({
         url: api.createPeriod,
         data:{
@@ -49,8 +50,19 @@ Page({
         }
       })
 
+=======
+      console.log(this.data.day)
+      wx.setStorageSync('lastTime', this.data.day)
+      
+>>>>>>> 71
   },
 
+  //点击问号跳转到帮助提示界面
+  tips:function(){
+    wx.navigateTo({
+      url: '../tips/tips',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -63,7 +75,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
+    // let skey = wx.getStorageSync('skey')  //从缓存中得到skey，如果没有则重新登录
+    // console.log('拿到缓存' + skey);
   },
 
   /**

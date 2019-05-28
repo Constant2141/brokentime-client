@@ -93,3 +93,12 @@ swiper-item{
   margin-left:213rpx;
   margin-top: 110rpx;
 }
+.wenhao{
+  width: 52rpx;
+  height: 52rpx;
+  margin-top: 60rpx;
+}
+.wenhao-wrap{
+  display: flex;
+  justify-content: center
+}

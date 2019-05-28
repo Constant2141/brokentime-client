@@ -1,14 +1,17 @@
 {
   "pages": [
+    "pages/journey/journey",
+    "pages/stats/stats",
     "pages/prompt/prompt",
     "pages/settime/settime",
+    "pages/tips/tips",
+    "pages/setBrokenTime/setBrokenTime",
+    "pages/history/history",
     "pages/editortime/editortime",
     "pages/homepage/homepage",
-    "pages/history/history",
     "pages/newCard/newCard",
     "pages/index/index",
     "pages/login/login"
-    
   ],
   "window": {
     "backgroundColor": "#dddddd",
