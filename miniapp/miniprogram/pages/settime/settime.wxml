@@ -1,19 +1,24 @@
 <view class='container'>
+<<<<<<< HEAD
   <navigator class="edit" target="" url="../../pages/editortime/editortime" hover-class="navigator-hover" open-type="navigate">  
     <view class='edit' style='background:url(../../images/write.png);background-repeat:no-repeat;'>
     </view>
   </navigator>
+=======
+  <view class='edit' style='background:url(../../images/write.png);background-repeat:no-repeat;' bindtap="edit">
+  </view>
+>>>>>>> greed
   <view wx:for="{{bigDeal}}" wx:key="{{index}}">
     <view class='date'>
       <view class='day'>{{item.day}}</view>
       <view class='week'>{{item.week}}</view>
     </view>
     <view class='time-line'>
-      <timeline wx:for="{{item.timeline}}" wx:key="{{index}}" timeline="{{item.timeline[index]}}"></timeline>
+      <timeline wx:for="{{item.timeline}}" wx:key="{{index}}" timeline="{{item}}"></timeline>
     </view>
   </view>
   
   <view class='button-wrap'>
-    <view class='next-button'>next</view>
+    <view class='next-button' bindtap="isfinish">next</view>
   </view>
 </view>

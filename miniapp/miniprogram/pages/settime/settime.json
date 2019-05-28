@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "timeline": "../../components/timeline/timeline"
+    "timeline": "../../components/timeline/timeline",
+    "warn": "../../components/warn/warn"
   }
 }
