@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/settime/settime",
     "pages/prompt/prompt",
     "pages/setBrokenTime/setBrokenTime",
     "pages/history/history",
@@ -7,7 +8,6 @@
     "pages/homepage/homepage",
     "pages/newCard/newCard",
     "components/warn/warn",
-    "pages/settime/settime",
     "pages/index/index",
     "pages/login/login"
     
