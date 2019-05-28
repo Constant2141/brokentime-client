@@ -2,14 +2,13 @@
 <image class='bg'></image>
 <image class='bg-card'></image>
 <view class='time'>
-  <font class='date'>第一天</font>
+  <font class='date'>第{{num}}天</font>
   <navigator class="dot" target="" url='../../pages/newCard/newCard' hover-class="navigator-hover" open-type="navigate">
     <image class='dot' src='http://pryl3ebd5.bkt.clouddn.com/dot.png'></image>
   </navigator>
 </view>
 <view class='card-wrap' wx:for="{{cards}}"  wx:key="id">
   <view class='card'>
-    
     <view class='top-line'>
       <font class="close-card" 
         data-id="{{item.id}}" 
@@ -33,6 +32,7 @@
       <textarea 
       class='text'
       bindblur="bindTextAreaBlur" 
+      data-id="{{item.id}}"
       auto-height 
       placeholder="{{isTapX?' ':'点击编辑'}}"
       disabled="{{isTapX?true:false}}"
@@ -43,9 +43,8 @@
         <image src="http://pryl3ebd5.bkt.clouddn.com/time@3x.png"></image>
       </view>
       <view class='card-time'>
-        <picker
-          mode="selector"
-          range="{{range}}"
+        <!-- <picker
+          mode="time"
           value="{{timeEnd}}"
           bindchange='bindTimeEndChange'
           start="00:00"
@@ -56,10 +55,18 @@
         <view>
           <font class="picker">{{item.timeEnd}}</font>
         </view>
-        </picker>
+        </picker> -->
+        <input class="picker" type="number" 
+        value="{{item.timeEnd}}"
+        placeholder-class="picker"
+        catchtap = "clickCard"
+        data-id="{{item.id}}"
+        placeholder="添加持续分钟数"
+        bindblur="inputChange"
+        />
       </view>
     </form>
   </view>
 </view>
 
-<view class='bottom-save'>save</view>
+<view class='bottom-save' bindtap="save" >save</view>

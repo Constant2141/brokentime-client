@@ -2,7 +2,9 @@
 const { api } = require('./config')
 App({
   globalData: {
-    newCard:''
+    newCard:'',
+    allCards:[],
+    order:''
   },
 
   doLogin: function () {
@@ -34,7 +36,7 @@ App({
               'content-type': 'application/json'
             },
             success: function (res) {
-              console.log(res.data.msg)
+              console.log(res.data)
               wx.setStorageSync("skey", res.data.skey)
               // console.log('储存skey成功')
             }

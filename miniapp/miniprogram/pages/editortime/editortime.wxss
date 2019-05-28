@@ -124,17 +124,20 @@ page{
   height: 46rpx;
   line-height: 46rpx;
   bottom: 30rpx;
+  vertical-align: middle;
 }
 .bottom-line>image{
   width: 46rpx;
   height: 46rpx;
   margin-left: 42rpx;
+  vertical-align: middle;
 }
 .picker{
   font-size: 24rpx;
   position: absolute;
   width: 200rpx;
   height: 46rpx;
+  line-height: 46rpx;
   color: #FFFFFF;
   vertical-align: middle;
 }

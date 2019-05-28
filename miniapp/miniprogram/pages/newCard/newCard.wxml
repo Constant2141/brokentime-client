@@ -35,7 +35,7 @@
         <button form-type="submit"  bindtap="submitCard">完成</button>
       </view>
       <view class='card-time'>
-        <picker
+        <!-- <picker
           mode="time"
           value="{{timeEnd}}"
           start="00:00"
@@ -46,7 +46,13 @@
         <view>
           <font class="picker">{{timeEnd}}</font>
         </view>
-        </picker>
+        </picker> -->     
+        <input class="picker" type="number" 
+        value="{{timeEnd}}"
+        placeholder-class="picker"
+        placeholder="添加持续分钟数"
+        bindblur="inputChange"
+        />
       </view>
     </form>
   </view>

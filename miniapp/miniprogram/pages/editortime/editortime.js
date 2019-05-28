@@ -7,39 +7,40 @@ Page({
     cards:[
       {
         timeStart: "06:00",
-        timeEnd: '添加持续时间',
+        timeEnd: '',
         val:""
       },
       {
         timeStart: "06:45",
-        timeEnd: '添加持续时间',
+        timeEnd: '',
         val:""
       },
       {
         timeStart: "10:00",
-        timeEnd: '添加持续时间',
+        timeEnd: '',
         val:""
       },
       {
         timeStart: "09:00",
-        timeEnd: '添加持续时间',
+        timeEnd: '',
         val:""
       },
       {
         timeStart: "11:00",
-        timeEnd: '添加持续时间',
+        timeEnd: '',
         val:""
       },
       {
         timeStart: "12:00",
-        timeEnd: '添加持续时间',
+        timeEnd: '',
         val:""
       },
     ],
     cardID:0,
-    range:Array,
+    range:[],
     isDel:false,
     isTapX:false,
+    num:'一'
   },
 
   /**
@@ -47,18 +48,19 @@ Page({
    */
   onLoad: function (options) {
     let app = getApp();
-    let arrayCard = this.data.cards;
-    let range=[];
-    for(let i = 1 ; i <= 1440 ; i++){
-      if(i!=1)
-      range.push(i+'mins');
-      else
-      range.push(i+'min')
-    }
-    this.setData({
-      range:range
-    })
-    console.log(range)
+    
+    // let arrayCard = this.data.cards;
+    // let range=[];
+    // for(let i = 1 ; i <= 1440 ; i++){
+    //   if(i!=1)
+    //   range.push(i+'mins');
+    //   else
+    //   range.push(i+'min')
+    // }
+    // this.setData({
+    //   range:range
+    // })
+    // console.log(range)
     if(app.globalData.newCard!=""){
       arrayCard.push(app.globalData.newCard)
       this.setData({
@@ -82,6 +84,25 @@ Page({
     this.setData({
       cards:cards
     })
+
+    switch(app.globalData.order){
+      case "": 
+
+    }
+  },
+  inputChange(e){
+    this.setData({
+      timeEnd:e.detail.value,
+    });
+      let ID = this.data.cardID;
+      let timeEnd =`cards[${ID}].timeEnd`
+      // this.setData({
+      //   [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
+      // });
+      this.setData({
+        [timeEnd]:this.data.timeEnd+'min'
+      })
+    console.log(this.data.timeEnd)
   },
   changeIsTapX(e){
     console.log(e.detail)
@@ -104,10 +125,27 @@ Page({
     })
     
   },
+  bindTextAreaBlur(e){
+    
+    this.setData({
+      cardID: e.currentTarget.dataset.id
+    })
+    let ID = this.data.cardID;
+    let val = `cards[${ID}].val`
+    this.setData({
+      [val]:e.detail.value
+    })
+  },
+  save(){
+    let app = getApp();
+    app.globalData.allCards.push(this.data.cards);
+    console.log(app.globalData.allCards);
+  },
   clickCard(e){
     this.setData({
       cardID: e.currentTarget.dataset.id
     })
+    console.log(this.data.cardID)
   },
   bindTimeStartChange(e){
     let ID = this.data.cardID;

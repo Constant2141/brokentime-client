@@ -5,7 +5,7 @@ Page({
    */
   data: {
     timeStart: '添加时间',
-    timeEnd: '添加持续时间',
+    timeEnd: '',
     val: '',
     isClickDot: false,
   },
@@ -46,6 +46,15 @@ Page({
       val: e.detail.value
     })
     console.log(e.detail.value)
+  },
+  inputChange(e){
+    this.setData({
+      timeEnd:e.detail.value +'min',
+    });
+      // this.setData({
+      //   [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
+      // });
+    console.log(this.data.timeEnd)
   },
   submitCard() {
     const _this =this;

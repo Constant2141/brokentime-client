@@ -9,10 +9,10 @@
         <view class="card-wrap" data-id="{{index}}">
           <image data-id="{{index}}" class="card-img" src="http://pryl3ebd5.bkt.clouddn.com/card.png" mode="aspectFit">
             <view class="circle">
-              {{item.point}}%
+              {{item.score}}%
             </view>
           </image>
-          <view class="time">{{item.dayStart}}-{{item.dayEnd}}</view>
+          <view class="time">{{item.createDate}}-{{item.endDay}}</view>
         </view>
       </view>
     </swiper-item>
