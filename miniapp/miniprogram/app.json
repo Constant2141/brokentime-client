@@ -3,12 +3,12 @@
     "pages/prompt/prompt",
     "pages/login/login",
     "pages/settime/settime",
+    "pages/editortime/editortime",
     "pages/journey/journey",
     "pages/stats/stats",
     "pages/tips/tips",
     "pages/setBrokenTime/setBrokenTime",
     "pages/history/history",
-    "pages/editortime/editortime",
     "pages/homepage/homepage",
     "pages/newCard/newCard",
     "pages/index/index"

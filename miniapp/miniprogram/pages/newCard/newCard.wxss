@@ -52,7 +52,7 @@ page{
   line-height: 100rpx;
 }
 .top-picker{
-  width: 35%;
+  width: 40%;
 }
 /* 
 .top-day{
@@ -129,7 +129,7 @@ page{
 .picker{
   font-size: 24rpx;
   position: absolute;
-  width: 200rpx;
+  width: 250rpx;
   height: 46rpx;
   color: #FFFFFF;
   vertical-align: middle;
