@@ -84,7 +84,7 @@ Page({
     this.setData({
       cards: delCards,
     })
-    getApp().globalData.allCards = delCards;
+    getApp().globalData.arrayCard = delCards;
 
   },
   bindTextAreaBlur(e) {
@@ -101,6 +101,9 @@ Page({
   save() {
     let app = getApp();
     let _this = this;
+    const {api} = require('../../config')
+    console.log(api.createTable);
+    
     app.globalData.allCards.push(app.globalData.arrayCard);
     app.globalData.arrayCard = [];
     switch (app.globalData.order) {
@@ -136,7 +139,7 @@ Page({
         "period_id":app.globalData.periods[app.globalData.periods.length-1]
       })
       wx.request({
-        url: 'http://192.168.1.101:3333/api/createTable',
+        url: api.createTable,
         data: {
           "skey": app.globalData.skey,
           "arr":app.globalData.allCards,
