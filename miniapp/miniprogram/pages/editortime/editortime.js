@@ -53,17 +53,17 @@ Page({
   },
   inputChange(e) {
     this.setData({
-      timeEnd: e.detail.value,
+      lastTime: e.detail.value,
     });
     let ID = this.data.cardID;
-    let timeEnd = `cards[${ID}].timeEnd`
+    let lastTime = `cards[${ID}].lastTime`
     // this.setData({
     //   [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
     // });
     this.setData({
-      [timeEnd]: this.data.timeEnd
+      [lastTime]: this.data.lastTime
     })
-    console.log(this.data.timeEnd)
+    console.log(this.data.lastTime)
   },
   changeIsTapX(e) {
     console.log(e.detail)
@@ -194,14 +194,14 @@ Page({
   },
   bindTimeEndChange(e) {
     this.setData({
-      timeEnd: e.detail.value,
+      lastTime: e.detail.value,
     });
     let ID = this.data.cardID;
-    let timeEnd = `cards[${ID}].timeEnd`
+    let lastTime = `cards[${ID}].lastTime`
     this.setData({
-      [timeEnd]: this.getMins(this.data.timeEnd)
+      [lastTime]: this.getMins(this.data.lastTime)
     });
-    console.log(this.data.timeEnd)
+    console.log(this.data.lastTime)
   },
   getMins(time) {
     let [hour, minute] = time.split(':');

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/prompt/prompt",
     "pages/editortime/editortime",
+    "pages/prompt/prompt",
     "pages/journey/journey",
     "pages/stats/stats",
     "pages/settime/settime",

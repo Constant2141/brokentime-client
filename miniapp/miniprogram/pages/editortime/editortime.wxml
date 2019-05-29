@@ -57,7 +57,7 @@
         </view>
         </picker> -->
         <input class="picker" type="number" 
-        value="{{item.timeEnd}}"
+        value="{{item.lastTime}}"
         placeholder-class="picker"
         catchtap = "clickCard"
         data-id="{{item.id}}"
