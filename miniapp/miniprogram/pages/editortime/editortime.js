@@ -61,7 +61,7 @@ Page({
     //   [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
     // });
     this.setData({
-      [timeEnd]: this.data.timeEnd + 'min'
+      [timeEnd]: this.data.timeEnd
     })
     console.log(this.data.timeEnd)
   },
@@ -134,6 +134,18 @@ Page({
       });
     } else {
       console.log(app.globalData.allCards)
+      if (app.globalData.allCards) {
+        
+        for(let i = 0 ; i< app.globalData.allCards.length-1 ; i++){
+          app.globalData.allCards[i].sort((a, b) => {
+            return a.timeStart >= b.timeStart ? true : false
+          })
+          app.globalData.allCards[i].forEach(function (val, idx) {
+            val.id = idx
+          })
+          console.log(app.globalData.allCards)
+        }
+      }
       console.log({
         "arr":app.globalData.allCards,
         "period_id":app.globalData.periods[app.globalData.periods.length-1]
@@ -187,7 +199,7 @@ Page({
     let ID = this.data.cardID;
     let timeEnd = `cards[${ID}].timeEnd`
     this.setData({
-      [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
+      [timeEnd]: this.getMins(this.data.timeEnd)
     });
     console.log(this.data.timeEnd)
   },

@@ -33,7 +33,7 @@ Page({
   },
   bindTimeEndChange(e) {
     this.setData({
-      timeEnd: this.getMins(e.detail.value) + "min"
+      timeEnd: this.getMins(e.detail.value)
     });
   },
   getMins(time) {
@@ -49,7 +49,7 @@ Page({
   },
   inputChange(e){
     this.setData({
-      timeEnd:e.detail.value +'min',
+      timeEnd:e.detail.value,
     });
       // this.setData({
       //   [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
