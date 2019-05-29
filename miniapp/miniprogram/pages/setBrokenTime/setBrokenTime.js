@@ -1,4 +1,7 @@
 // miniprogram/pages/setBrokenTime/setBrokenTime.js
+const { api } = require("../../config");
+const app = getApp();
+var data ;
 Page({
 
   /**
@@ -9,106 +12,130 @@ Page({
     // week:'星期四',
     isfinish:false,
     isback:false,
-    issue:[{
-      day:'4.25',
-      week:'星期四',
-      bigDeal:[{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      },{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      },{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      },{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      },{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      }],
-      brokenTime:[{
-        id:0,
-        timecard:'6.00-6.45',
-        brokenIssue:''
-      },{
-        id:1,
-        timecard:'6.00-6.45',
-        brokenIssue:''
-      },{
-        id:2,
-        timecard:'6.00-6.45',
-        brokenIssue:''
-      },{
-        id:3,
-        timecard:'6.00-6.45',
-        brokenIssue:''
-      }]
-    },
-    {
-      day:'4.26',
-      week:'星期五',
-      bigDeal:[{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      },{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      },{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      },{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      },{
-        timeLabel:"早晨",
-        time:'6:00',
-        issue:'刷牙洗脸 早起背单词',
-        lasttime:'10min'
-      }],
-      brokenTime:[{
-        id:0,
-        timecard:'6.00-6.45',
-        brokenIssue:''
-      },{
-        id:1,
-        timecard:'6.00-6.45',
-        brokenIssue:''
-      },{
-        id:2,
-        timecard:'6.00-6.45',
-        brokenIssue:''
-      },{
-        id:3,
-        timecard:'6.00-6.45',
-        brokenIssue:''
-      }]
-    }]
+    bigDeal:[],
+    brokenDeal:[],
+    sendData:[],
 
   },
   save(e){
     this.setData({
       isfinish:true
     })
+    wx.request({
+      url:api.createBTable,
+      data:{
+        "period_id":app.globalData.periods[app.globalData.periods.length-1],
+        "skey":wx.getStorageSync('skey'),
+        "arr":this.data.sendData
+      },
+      method:"POST",
+      success:(res)=>{
+        console.log(res)
+      }
+    })
+  },
+  bind(){
+    wx.request({
+      url: api.calc,
+      data:{
+        "period_id":app.globalData.periods[app.globalData.periods.length-1],
+        "skey":wx.getStorageSync('skey'),
+      },
+      method:"POST",
+      success:(res)=>{
+        console.log(res);
+        this.setData({
+          brokenDeal:res.data.data
+        })
+        this.split(res.data.data)
+        // this.handleData(res.data.data)
+      },
+      fail:(err)=>{
+        console.log(err);
+        
+      }
+    })
+    wx.request({
+      url: api.getTable,
+      data:{
+        "period_id":app.globalData.periods[app.globalData.periods.length-1],
+        "skey":wx.getStorageSync('skey'),
+      },
+      method:"POST",
+      success:(res)=>{
+        console.log(res);
+        this.handleData(res.data.data)
+      },
+      fail:(err)=>{
+        console.log(err);
+        
+      }
+    })
+  },
+  split(e){
+    let arr = [];
+    for(let i =0;i < e.length;i++){
+      arr[i] = [];
+      for(let j = 0;j < e[i].length;j++){
+        let time = e[i][j].split("-");
+        let data = {
+          "timeStart":time[0],
+          "timeEnd":time[1],
+          "affair":''
+        }
+        arr[i].push(data);
+      }
+    }
+    this.setData({
+      sendData:arr
+    })
+    console.log(arr);
+  },
+  handleData(e){
+    let issue = [];
+    switch(e.lastTime){
+      case "1": issue[0] = [];
+              break;
+      case "3": for(let i =0;i<3;i++){
+                issue[i] = [];
+              }
+              break;  
+      case "3": for(let i =0;i<7;i++){
+                issue[i] = [];
+              }
+              break      
+    }
+    for(let i = 0;i < e.tables.length;i++){
+      switch(e.tables[i].order){
+        case "1":issue[0].push(e.tables[i]);
+                  break;
+        case "2":issue[1].push(e.tables[i]);
+                  break;  
+        case "3":issue[2].push(e.tables[i]);
+                  break;     
+        case "4":issue[3].push(e.tables[i]);
+                  break;
+        case "5":issue[4].push(e.tables[i]);
+                  break;  
+        case "6":issue[5].push(e.tables[i]);
+                  break;
+        case "7":issue[6].push(e.tables[i]);
+                  break;               
+      }
+    }
+    console.log(issue)
+    this.setData({
+      bigDeal:issue
+    })
+  },
+  bindblur(e){
+    console.log(e)
+    let index = e.target.id.split(",");
+    let val =   `sendData[${index[0]}][${index[1]}].affair`;
+    this.setData({
+      [val]:e.detail.value
+    })
+    console.log(this.data.sendData);
   },
   bindKeyInput(e){
     // console.log(e)

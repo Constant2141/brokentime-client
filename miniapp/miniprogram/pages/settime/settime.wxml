@@ -1,20 +1,21 @@
 <view class='container'>
-  <navigator class="edit" target="" url="../../pages/editortime/editortime" hover-class="navigator-hover" open-type="navigate">  
+  <!-- <navigator class="edit" target="" url="../../pages/editortime/editortime" hover-class="navigator-hover" open-type="navigate">  
     <view class='edit' style='background:url(../../images/write.png);background-repeat:no-repeat;'>
     </view>
-  </navigator>
+  </navigator> -->
   <view wx:for="{{bigDeal}}" wx:key="{{index}}">
     <view class='date'>
-      <view class='day'>{{item.day}}</view>
-      <view class='week'>{{item.week}}</view>
+      <view class='day'>{{item[0].createDate}}</view>
+      <view class='week'>星期{{item[0].createDay}}</view>
     </view>
     <view class='time-line'>
-      <timeline wx:for="{{item.timeline}}" wx:key="{{index}}" timeline="{{item}}"></timeline>
+      <timeline wx:for="{{item}}" wx:key="{{index}}" timeline="{{item}}"></timeline>
     </view>
   </view>
   
   <view class='button-wrap'>
     <view class='next-button' bindtap="isfinish">next</view>
   </view>
+  <warn wx:if="{{isfinish}}" content="是否确认填写的日程信息完整？" turnBackTo="pages/setBrokenTime/setBrokenTime"></warn>
   <view style="width:30px;height:30px;background:green;position:fixed" bindtap="bind"></view>
 </view>

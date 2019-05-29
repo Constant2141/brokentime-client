@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isfinish:false,
     bigDeal:[{
       day:'4.25',
       week:"星期四",
@@ -78,6 +78,8 @@ Page({
 
   },
   bind(){
+    console.log(app.globalData.periods[app.globalData.periods.length-1]);
+    
     wx.request({
       url: api.getTable,
       data:{
@@ -94,39 +96,46 @@ Page({
 
   handleData(e){
     let issue = [];
-    console.log(e)
-    // switch(e.lastTime){
-    //   case "1":this.setData({
-    //             bigDeal:e.tables
-    //           });
-    //           break;
-    //   case "3":
-    //           for(let i =0;i < 3;i++){
-    //             for(let j = 0;j<e.tables.length;i++){
-    //               if(e.tables[j].order == (i+1)){
-    //                 issue[i].push(e.tables[j]);
-    //               }
-    //             }
-    //           }
-    //           break;
-    //   case "7":
-    //           for(let i =0;i < 7;i++){
-    //             for(let j = 0;j<e.tables.length;i++){
-    //               if(e.tables[j].order == (i+1)){
-    //                 issue[i].push(e.tables[j]);
-    //               }
-    //             }
-    //           }
-    //           break;
-    // }
+    switch(e.lastTime){
+      case "1": issue[0] = [];
+              break;
+      case "3": for(let i =0;i<3;i++){
+                issue[i] = [];
+              }
+              break;  
+      case "3": for(let i =0;i<7;i++){
+                issue[i] = [];
+              }
+              break      
+    }
+    for(let i = 0;i < e.tables.length;i++){
+      switch(e.tables[i].order){
+        case "1":issue[0].push(e.tables[i]);
+                  break;
+        case "2":issue[1].push(e.tables[i]);
+                  break;  
+        case "3":issue[2].push(e.tables[i]);
+                  break;     
+        case "4":issue[3].push(e.tables[i]);
+                  break;
+        case "5":issue[4].push(e.tables[i]);
+                  break;  
+        case "6":issue[5].push(e.tables[i]);
+                  break;
+        case "7":issue[6].push(e.tables[i]);
+                  break;               
+      }
+    }
     console.log(issue)
+    this.setData({
+      bigDeal:issue
+    })
   },
-  // edit(){
-  //   // console.log(1)
-  //   wx.redirectTo({
-  //     url:'../editortime/editortime'
-  //   })
-  // },
+  isfinish(){
+    this.setData({
+      isfinish:true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,20 +1,21 @@
 <view class="container">
-  <view wx:for="{{issue}}" class="period">
+   <view style="width:30px;height:30px;background:green;position:fixed" bindtap="bind"></view>
+  <view wx:for="{{bigDeal}}" class="period">
     <view class='time-title'>
-      <view class='day'>{{item.day}}</view>
-      <view class='week'>{{item.week}}</view>
+      <view class='day'>{{item[0].createDate}}</view>
+      <view class='week'>星期{{item[0].createDay}}</view>
     </view>
     <!-- 将时间线分为左右两个部分布局，左边为大事件，右边为可填写的破碎时间 -->
     <view class="time-line" >
       <view class="line-left">
-        <view class="line-card" wx:for="{{item.bigDeal}}">
+        <view class="line-card" wx:for="{{item}}">
             <view class="big-deal">
               <view class="big-time">
-                <view class="time-label">{{item.timeLabel}}</view>
-                <view class="time">{{item.time}}</view>
+                <!-- <view class="time-label">{{item.timeLabel}}</view> -->
+                <view class="time">{{item.timeStart}}</view>
               </view>
-              <view class="big-issue">{{item.issue}}</view>
-              <view class="big-lasttime">{{item.lasttime}}</view>
+              <view class="big-issue">{{item.affair}}</view>
+              <view class="big-lasttime">{{item.lastTime}}min</view>
             </view>
             <view class="line">
               <view class="line-top"></view>
@@ -24,11 +25,11 @@
         </view>
         
       <view class="line-right" >
-        <view class="card-box" wx:for="{{item.brokenTime}}">
+        <view class="card-box" wx:for="{{brokenDeal[index]}}" wx:for-index="index2">
           <view class="position-box">
             <view class="line-right-left"></view>
             <view class="line-right-bottom"></view>
-            <view class="brokenTime">{{item.timecard}}</view>
+            <view class="brokenTime">{{item}}</view>
             <view class="broken-text">
               <!-- <textarea 
               row="3"
@@ -41,10 +42,10 @@
               <input 
               type="text" 
               placeholder="点击编辑" 
-              placeholder-class="placeholder" 
+              placeholder-class="placeholder"
+              bindblur="bindblur" 
               bindinput="bindKeyInput" 
-              id="{{item.id}}" 
-              value="{{item.brokenIssue}}"
+              id="{{index}},{{index2}}"  
               maxlength="20">
               </input>
             </view>
@@ -58,7 +59,7 @@
   <view class="button" bindtap="save">
     save
   </view>
-  <warn wx:if="{{isfinish}}" content="是否确认填写的日程信息完整？" turnBackTo="pages/homepage/homepage"></warn>
+  <!-- <warn wx:if="{{isfinish}}" content="是否确认填写的日程信息完整？" turnBackTo="pages/homepage/homepage"></warn> -->
   <warn wx:if="{{isback}}" content="您尚未保存已填写的日程消息，是否返回上一节面？"></warn>
 </view>
  
