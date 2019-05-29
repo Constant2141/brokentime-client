@@ -1,13 +1,8 @@
 <view class='container'>
-<<<<<<< HEAD
   <navigator class="edit" target="" url="../../pages/editortime/editortime" hover-class="navigator-hover" open-type="navigate">  
     <view class='edit' style='background:url(../../images/write.png);background-repeat:no-repeat;'>
     </view>
   </navigator>
-=======
-  <view class='edit' style='background:url(../../images/write.png);background-repeat:no-repeat;' bindtap="edit">
-  </view>
->>>>>>> greed
   <view wx:for="{{bigDeal}}" wx:key="{{index}}">
     <view class='date'>
       <view class='day'>{{item.day}}</view>

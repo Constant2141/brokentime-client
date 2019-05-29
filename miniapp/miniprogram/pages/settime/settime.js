@@ -1,4 +1,5 @@
 // miniprogram/pages/settime/settime.js
+const { api } = require("../../config");
 Page({
 
   /**
@@ -75,19 +76,23 @@ Page({
     
 
   },
-  edit(){
-    // console.log(1)
-    wx.redirectTo({
-      url:'../editortime/editortime'
-    })
-  },
+  // edit(){
+  //   // console.log(1)
+  //   wx.redirectTo({
+  //     url:'../editortime/editortime'
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      
-    })
+    console.log(wx.getStorageSync('periods'))
+    // wx.request({
+    //   url: api.getTable,
+    //   data:{
+        
+    //   }
+    // })
   },
 
   /**
