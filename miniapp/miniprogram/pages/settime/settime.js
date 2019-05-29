@@ -1,5 +1,6 @@
 // miniprogram/pages/settime/settime.js
 const { api } = require("../../config");
+const app = getApp();
 Page({
 
   /**
@@ -76,6 +77,50 @@ Page({
     
 
   },
+  bind(){
+    wx.request({
+      url: api.getTable,
+      data:{
+        "period_id":app.globalData.periods[app.globalData.periods.length-1],
+        "skey":wx.getStorageSync('skey'),
+      },
+      method:"POST",
+      success:(res)=>{
+        console.log(res);
+        this.handleData(res.data.data)
+      }
+    })
+  },
+
+  handleData(e){
+    let issue = [];
+    console.log(e)
+    // switch(e.lastTime){
+    //   case "1":this.setData({
+    //             bigDeal:e.tables
+    //           });
+    //           break;
+    //   case "3":
+    //           for(let i =0;i < 3;i++){
+    //             for(let j = 0;j<e.tables.length;i++){
+    //               if(e.tables[j].order == (i+1)){
+    //                 issue[i].push(e.tables[j]);
+    //               }
+    //             }
+    //           }
+    //           break;
+    //   case "7":
+    //           for(let i =0;i < 7;i++){
+    //             for(let j = 0;j<e.tables.length;i++){
+    //               if(e.tables[j].order == (i+1)){
+    //                 issue[i].push(e.tables[j]);
+    //               }
+    //             }
+    //           }
+    //           break;
+    // }
+    console.log(issue)
+  },
   // edit(){
   //   // console.log(1)
   //   wx.redirectTo({
@@ -86,13 +131,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(wx.getStorageSync('periods'))
-    // wx.request({
-    //   url: api.getTable,
-    //   data:{
-        
-    //   }
-    // })
+    // console.log(wx.getStorageSync('periods'))
+    
+    console.log(app.globalData.periods)
+    
   },
 
   /**

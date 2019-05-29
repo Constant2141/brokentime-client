@@ -16,4 +16,5 @@
   <view class='button-wrap'>
     <view class='next-button' bindtap="isfinish">next</view>
   </view>
+  <view style="width:30px;height:30px;background:green;position:fixed" bindtap="bind"></view>
 </view>
