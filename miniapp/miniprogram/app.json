@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/settime/settime",
     "pages/prompt/prompt",
     "pages/journey/journey",
     "pages/stats/stats",
-    "pages/settime/settime",
     "pages/tips/tips",
     "pages/setBrokenTime/setBrokenTime",
     "pages/history/history",
