@@ -84,6 +84,7 @@ Page({
     this.setData({
       cards: delCards,
     })
+    getApp().globalData.allCards = delCards;
 
   },
   bindTextAreaBlur(e) {
@@ -150,7 +151,7 @@ Page({
           wx.redirectTo({
             url: '../../pages/settime/settime',
             success: (result) => {
-              console.log(app.globalData.allCards)
+              app.globalData.allCards=[];
             },
             fail: () => { },
             complete: () => { }
