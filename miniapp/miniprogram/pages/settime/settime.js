@@ -86,12 +86,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: api.getTable,
-      data:{
+    console.log(wx.getStorageSync('periods'))
+    // wx.request({
+    //   url: api.getTable,
+    //   data:{
         
-      }
-    })
+    //   }
+    // })
   },
 
   /**
