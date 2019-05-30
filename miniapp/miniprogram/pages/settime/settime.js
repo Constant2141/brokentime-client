@@ -80,6 +80,9 @@ Page({
   bind(){
     console.log(app.globalData.periods[app.globalData.periods.length-1]);
     
+   
+  },
+  getTable(){
     wx.request({
       url: api.getTable,
       data:{
@@ -93,7 +96,6 @@ Page({
       }
     })
   },
-
   handleData(e){
     let issue = [];
     switch(e.lastTime){
@@ -141,7 +143,7 @@ Page({
    */
   onLoad: function (options) {
     // console.log(wx.getStorageSync('periods'))
-    
+    this.getTable();
     console.log(app.globalData.periods)
     
   },

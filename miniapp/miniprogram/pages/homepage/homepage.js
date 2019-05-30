@@ -30,6 +30,11 @@ Page({
     msg:"",
     isHidden:false,
   },
+  showBKtime(){
+    wx.navigateTo({
+      url:'../showBrokenTime/showBrokenTime'
+    })
+  },
   menuClick(e){
     if (this.data.change) {
       this.setData({

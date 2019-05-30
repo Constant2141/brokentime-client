@@ -1,3 +1,4 @@
+/* pages/showBrokenTime/showBrokenTime.wxss */
 
 
 .time-title{
@@ -97,14 +98,19 @@
 .position-box{
     position: absolute;
     top:150rpx;
-    left:-37rpx;
+    left:-59rpx;
 }
 .line-right-left{
-    width: 20rpx;
-    height: 20rpx;
+    width: 60rpx;
+    height: 60rpx;
     background: #ffffff;
-    transform: rotate(45deg);
+    /* transform: rotate(45deg); */
     display: inline-block;
+    border-radius: 20px;
+    vertical-align: middle;
+    font-size:20rpx;
+    text-align: center;
+    line-height: 60rpx;
 }
 .line-right-bottom{
     width:112rpx;
@@ -130,7 +136,15 @@
     font-size:32rpx;
     width:200rpx;
     position:relative;
-    left:130rpx;
+    left:170rpx;
+}
+.showAffair{
+    width: 100%;
+    height: 50rpx;
+    display: block;
+    color: #ffffff;
+    word-break: break-all;
+    text-align: center;
 }
 .placeholder{
     text-align: center;
@@ -148,3 +162,14 @@
     line-height: 80rpx;
     margin: 70rpx 0 70rpx 0;
 }
+.dot{
+    width: 87rpx;
+    height: 87rpx;
+    /* background-color: #FFFFFF; */
+    /* opacity: 0.9 ; */
+    /* box-shadow:0 6rpx 12rpx #000000; */
+    position: fixed;
+    z-index: 3;
+    right: 20rpx;
+    top: 10rpx;
+  }

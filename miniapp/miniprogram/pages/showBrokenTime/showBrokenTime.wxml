@@ -1,4 +1,8 @@
+<!--pages/showBrokenTime/showBrokenTime.wxml-->
 <view class="container">
+    <!-- <navigator class="dot" target="" url='../../pages/homepage/homepage' hover-class="navigator-hover" open-type="navigate">
+        <image class='dot' src='http://pryl3ebd5.bkt.clouddn.com/dot.png'></image>
+    </navigator> -->
    <!-- <view style="width:30px;height:30px;background:green;position:fixed" bindtap="bind"></view> -->
   <view wx:for="{{bigDeal}}" class="period">
     <view class='time-title'>
@@ -27,9 +31,9 @@
       <view class="line-right" >
         <view class="card-box" wx:for="{{brokenDeal[index]}}" wx:for-index="index2">
           <view class="position-box">
-            <view class="line-right-left"></view>
+            <view class="line-right-left">{{item.score}}%</view>
             <view class="line-right-bottom"></view>
-            <view class="brokenTime">{{item}}</view>
+            <view class="brokenTime">{{item.timeStart}}-{{item.timeEnd}}</view>
             <view class="broken-text">
               <!-- <textarea 
               row="3"
@@ -39,26 +43,14 @@
               placeholder-class="placeholder" 
               maxlength="20" >
               </textarea>  -->
-              <input 
-              type="text" 
-              placeholder="点击编辑" 
-              placeholder-class="placeholder"
-              bindblur="bindblur" 
-              bindinput="bindKeyInput" 
-              id="{{index}},{{index2}}"  
-              maxlength="20">
-              </input>
+                <text class="showAffair">{{item.affair}}</text>
             </view>
           </view>
         </view>
-        
       </view>
     </view>
   </view>  
   
-  <view class="button" bindtap="save">
-    save
-  </view>
   <!-- <warn wx:if="{{isfinish}}" content="是否确认填写的日程信息完整？" turnBackTo="pages/homepage/homepage"></warn> -->
   <warn wx:if="{{isback}}" content="您尚未保存已填写的日程消息，是否返回上一节面？"></warn>
 </view>
