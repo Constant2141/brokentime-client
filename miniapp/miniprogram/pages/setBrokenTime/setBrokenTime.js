@@ -21,6 +21,9 @@ Page({
     this.setData({
       isfinish:true
     })
+    console.log(wx.getStorageSync('skey'))
+    console.log(app.globalData.periods[app.globalData.periods.length-1])
+    console.log(this.data.sendData)
     wx.request({
       url:api.createBTable,
       data:{
