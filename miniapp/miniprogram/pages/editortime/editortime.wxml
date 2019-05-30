@@ -1,4 +1,6 @@
 <warn wx:if="{{isDel}}" content="是否确认删除当前的编辑内容？"  turnBackTo="" bindmyevent="confirm"/>
+<warn wx:if="{{isOnlyOne}}" content="日程不能只有一个！"  turnBackTo="" bindmyevent1="confirmOnlyOne"/>
+
 <image class='bg'></image>
 <image class='bg-card'></image>
 <view class='time'>

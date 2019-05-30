@@ -14,18 +14,18 @@ Page({
     value:[0],
     select:1,
     timeList:[
-      {
-        time:'20:26',
-        msg:'背单词'
-      },
-      {
-        time:'20:26',
-        msg:'抄单词'
-      },
-      {
-        time:'20:26',
-        msg:'创造单词'
-      }
+      // {
+      //   time:'20:26',
+      //   msg:'背单词'
+      // },
+      // {
+      //   time:'20:26',
+      //   msg:'抄单词'
+      // },
+      // {
+      //   time:'20:26',
+      //   msg:'创造单词'
+      // }
     ],
     msg:"",
     isHidden:false,
@@ -70,7 +70,7 @@ Page({
   },
   bindChange(e){
     let ID = e.detail.value[0]
-    let msg = this.data.timeList[ID].msg
+    let msg = this.data.timeList[ID].affair
     this.setData({
       value: e.detail.value,
       select:e.detail.value[0],
@@ -88,9 +88,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      msg:this.data.timeList[0].msg
-    })
+    const {api} =require('../../config')
+    let app = getApp();
+    const _this = this;
+    console.log(app.globalData.skey);
+    
+    console.log(api.getTable)
+    wx.request({
+      url: api.getTable,
+      data: {
+        "skey":app.globalData.skey,
+        "period_id":app.globalData.periods[app.globalData.periods.length-1]
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      success: (result)=>{
+        console.log(result.data.data.btables)
+
+        this.setData({
+          timeList:result.data.data.btables,
+          msg:result.data.data.btables[0].affair
+        })
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

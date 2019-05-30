@@ -19,6 +19,7 @@ Component({
   methods: {
     close(){   
       this.triggerEvent('myevent',{confirm:false,isTapX:false})
+      this.triggerEvent('myevent1',{confirm:false,isTapX:false,isOnlyOne:false})
       this.setData({
         isClose:!this.data.isClose,
       })
@@ -27,7 +28,8 @@ Component({
       if(this.data.turnBackTo ==''){
         this.setData({
           isClose:!this.data.isClose,
-        })
+        })  
+        this.triggerEvent('myevent1',{confirm:false,isTapX:false,isOnlyOne:false})
         this.triggerEvent('myevent',{confirm:true,isTapX:false})
         return true 
       }

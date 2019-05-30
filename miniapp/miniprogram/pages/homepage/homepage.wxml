@@ -21,7 +21,7 @@
         bindchange="bindChange"
       >
         <picker-view-column class="column">
-          <view  wx:for="{{timeList}}" wx:key="id">{{item.time}}</view>
+          <view  wx:for="{{timeList}}" wx:key="id">{{item.timeStart}}</view>
         </picker-view-column>
       </picker-view>
       <view class='whatyoudo {{isHidden ? ["hidden"] : [""]}}'>{{msg}}</view>

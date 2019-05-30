@@ -10,7 +10,8 @@ Page({
     isDel: false,
     isTapX: false,
     num: "一",
-    isNext: Boolean
+    isNext: Boolean,
+    isOnlyOne:false,
   },
 
   /**
@@ -32,7 +33,6 @@ Page({
     } else {
       console.log(app.globalData.newCard)
     }
-
     /***按时间分配id ***/
     if (arrayCard) {
 
@@ -49,6 +49,8 @@ Page({
         cards: arrayCard
       })
     }
+    
+    console.log(app.globalData.arrayCard)
 
   },
   inputChange(e) {
@@ -79,7 +81,6 @@ Page({
 
   },
   confirmDelCard() {
-
     let delCards = this.data.cards.filter(card => card.id != this.data.cardID);
     this.setData({
       cards: delCards,
@@ -103,9 +104,13 @@ Page({
     let _this = this;
     const {api} = require('../../config')
     console.log(api.createTable);
-    
-    app.globalData.allCards.push(app.globalData.arrayCard);
-    app.globalData.arrayCard = [];
+    console.log('app.globalData.arrayCard.length: '+app.globalData.arrayCard.length)
+    console.log(app.globalData.arrayCard)
+    if(app.globalData.arrayCard.length>1){
+      app.globalData.allCards.push(app.globalData.arrayCard);
+      app.globalData.arrayCard = [];
+    }
+
     switch (app.globalData.order) {
       case `${app.globalData.lastTime}`:
         this.setData({
@@ -150,32 +155,43 @@ Page({
         "arr":app.globalData.allCards,
         "period_id":app.globalData.periods[app.globalData.periods.length-1]
       })
-      wx.request({
-        url: api.createTable,
-        data: {
-          "skey": app.globalData.skey,
-          "arr":app.globalData.allCards,
-          "period_id":app.globalData.periods[app.globalData.periods.length-1]
-        },
-        header: {
-          'content-type': 'application/json'
-        },
-        method: 'POST',
-        success(res) {
-          console.log(res)
-          wx.redirectTo({
-            url: '../../pages/settime/settime',
-            success: (result) => {
-              app.globalData.allCards=[];
-            },
-            fail: () => { },
-            complete: () => { }
-          });
-        },
-        fail(err){
-          console.log(err)
-        }
-      })
+      console.log('app.globalData.allCards.length: '+app.globalData.allCards.length)
+      console.log(app.globalData.allCards)
+      if( app.globalData.allCards!=[] 
+        && app.globalData.allCards[0]
+        && app.globalData.allCards[app.globalData.allCards.length-1].length > 1){
+        wx.request({
+          url: api.createTable,
+          data: {
+            "skey": app.globalData.skey,
+            "arr":app.globalData.allCards,
+            "period_id":app.globalData.periods[app.globalData.periods.length-1]
+          },
+          header: {
+            'content-type': 'application/json'
+          },
+          method: 'POST',
+          success(res) {
+            console.log(res)
+            wx.redirectTo({
+              url: '../../pages/settime/settime',
+              success: (result) => {
+                app.globalData.allCards=[];
+              },
+              fail: () => { },
+              complete: () => { }
+            });
+          },
+          fail(err){
+            console.log(err)
+          }
+        })
+      }else{
+        console.log('aaa: '+app.globalData.allCards.length)
+        this.setData({
+          isOnlyOne:true
+        })
+      }
     }
   },
   clickCard(e) {
@@ -208,13 +224,19 @@ Page({
     let mins = parseInt(hour) * 60 + parseInt(minute);
     return mins
   },
+  confirmOnlyOne(e){
+    console.log(e.detail.isOnlyOne)
+    if(!e.detail.isOnlyOne){
+      this.setData({
+        isOnlyOne:false
+      })
+    }
+  },
   confirm(e) {
-    console.log(e.detail.confirm)
     this.setData({
       isTapX: e.detail.isTapX,
-      isDel: false
+      isDel: false,
     })
-
     if (e.detail.confirm) {
       this.confirmDelCard()
     }
