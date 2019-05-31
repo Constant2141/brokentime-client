@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/homepage/homepage",
     "pages/prompt/prompt",
     "pages/journey/journey",
     "pages/stats/stats",
     "pages/settime/settime",
     "pages/tips/tips",
-    "pages/homepage/homepage",
-    "pages/index/index",
     "pages/history/history",
     "pages/editortime/editortime",
     "pages/showBrokenTime/showBrokenTime",

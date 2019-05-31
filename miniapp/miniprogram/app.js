@@ -42,6 +42,7 @@ App({
               let app = getApp()
               console.log(res.data)
               wx.setStorageSync("skey", res.data.skey)
+              wx.setStorageSync("periods", res.data.data.periods)
               getApp().globalData.skey = res.data.skey;
               app.globalData.periods = res.data.data.periods;
               console.log(app.globalData.periods)

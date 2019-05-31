@@ -78,7 +78,7 @@ Page({
 
   },
   bind(){
-    console.log(app.globalData.periods[app.globalData.periods.length-1]);
+    console.log(wx.getStorageSync('periods')[wx.getStorageSync('periods').length-1]);
     
    
   },
@@ -86,7 +86,7 @@ Page({
     wx.request({
       url: api.getTable,
       data:{
-        "period_id":app.globalData.periods[app.globalData.periods.length-1],
+        "period_id":wx.getStorageSync('periods')[wx.getStorageSync('periods').length-1],
         "skey":wx.getStorageSync('skey'),
       },
       method:"POST",

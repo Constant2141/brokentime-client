@@ -99,19 +99,19 @@ Page({
       url: api.getTable,
       data: {
         "skey":wx.getStorageSync('skey'),
-        "period_id":app.globalData.periods[app.globalData.periods.length-1]
+        "period_id":wx.getStorageSync('periods')[wx.getStorageSync('periods').length-1]
       },
       header: {
         'content-type': 'application/json'
       },
       method: 'POST',
       success: (result)=>{
-
+        
         this.setData({
           timeList:result.data.data.btables,
           msg:result.data.data.btables[0].affair
         })
-        let [month,day] = res.data.data.endDay.split('.')
+        let [month,day] = result.data.data.endDay.split('.')
         let nowMon = new Date().getMonth()+1
         let nowDay = new Date().getDate()
         if(nowMon >= month && nowDay > day){

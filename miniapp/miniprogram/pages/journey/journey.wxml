@@ -1,5 +1,5 @@
 <view class='container' bindtap="next">
- <image src='../../images/left.png' class='left' ></image>
+ <image src='http://pryl3ebd5.bkt.clouddn.com/left2.png' class='left' ></image>
     <view class='text'>start your journey</view>
-  <image src='../../images/right.png' class='right' ></image>
+  <image src='http://pryl3ebd5.bkt.clouddn.com/right2.png' class='right' ></image>
 </view>

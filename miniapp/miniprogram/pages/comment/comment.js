@@ -226,7 +226,7 @@ Page({
       url: api.getTable,
       data: {
         "skey":wx.getStorageSync('skey'),
-        "period_id":app.globalData.periods[app.globalData.periods.length-1]
+        "period_id":wx.getStorageSync('periods')[wx.getStorageSync('periods').length-1]
       },
       header: {
         'content-type': 'application/json'
@@ -326,7 +326,7 @@ Page({
       url: api.comment,
       data: {
         "skey":wx.getStorageSync('skey'),
-        "period_id":app.globalData.periods[app.globalData.periods.length-1],
+        "period_id":wx.getStorageSync('periods')[wx.getStorageSync('periods').length-1],
         "arr":arr
       },
       header: {

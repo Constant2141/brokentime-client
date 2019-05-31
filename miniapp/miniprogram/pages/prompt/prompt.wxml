@@ -1,13 +1,13 @@
 <view class='container'>
   <swiper indicator-dots="true" indicator-color="#FFFFFF" indicator-active-color="#B2B2B2">
     <swiper-item>
-      <view class='item' style="background-image:url('../../images/clock.png');;background-repeat:no-repeat;  background-position:49rpx 120rpx;">
+      <view class='item' style="background-image:url('http://pryl3ebd5.bkt.clouddn.com/clock.png');;background-repeat:no-repeat;  background-position:49rpx 120rpx;">
         <view class="text-1">时间规划</view>
         <view class="text-2">精确到每个时间节点</view>
       </view>
     </swiper-item>
     <swiper-item>
-      <view class='item' style="background-image:url('../../images/prompt2.png');background-repeat:no-repeat;  background-position:103rpx -10rpx;">
+      <view class='item' style="background-image:url('http://pryl3ebd5.bkt.clouddn.com/prompt2.png');background-repeat:no-repeat;  background-position:103rpx -10rpx;">
         <view class="text-1">破碎时间管理</view>
         <view class="text-2">利用每个不起眼的时刻</view>
       </view>
@@ -19,7 +19,7 @@
       <view class="day-item {{day == 7?'day-item-choose':''}}" bindtap="choose" id="7">一周</view>
       <view class="start" bindtap="start">start</view>
       <view class='wenhao-wrap'>
-        <image src='../../images/wenhao.png' class='wenhao' bindtap='tips'></image>
+        <image src='http://pryl3ebd5.bkt.clouddn.com/wenhao.png' class='wenhao' bindtap='tips'></image>
       </view>
 
     </swiper-item>

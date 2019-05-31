@@ -164,7 +164,7 @@ Page({
                 data: {
                   "skey": app.globalData.skey,
                   "arr":app.globalData.allCards,
-                  "period_id":app.globalData.periods[app.globalData.periods.length-1]
+                  "period_id":wx.getStorageSync('periods')[wx.getStorageSync('periods').length-1]
                 },
                 header: {
                   'content-type': 'application/json'
