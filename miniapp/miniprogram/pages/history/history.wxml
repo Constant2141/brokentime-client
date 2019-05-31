@@ -6,7 +6,7 @@
       <view
         class="card {{activeID == index ? ['active-card']:''}} {{activeID == index-1 ? ['next-card']:''}} {{activeID == index+1 ?['pre-card']:''}}"
         catchtap="clickCard" data-id="{{index}}">
-        <view class="card-wrap" data-id="{{index}}">
+        <view class="card-wrap"  data-id="{{index}}" bindtap="interCard">
           <image data-id="{{index}}" class="card-img" src="http://pryl3ebd5.bkt.clouddn.com/card.png" mode="aspectFit">
             <view class="circle">
               {{item.score}}%

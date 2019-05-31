@@ -5,7 +5,7 @@
   <font class="switch-week">星期四</font>
   <image class="right-arrow {{isShowRightArrow?['show']:['hide']}}" src="http://pryl3ebd5.bkt.clouddn.com/right.png" bindtap="toRight"></image>
 </view>
-<swiper class="swiper-wrap" skip-hidden-item-layout="true" current="{{index==-1?days.length-1:index}}" style="height:'{{height}}'" bindchange="change">
+<swiper class="swiper-wrap" skip-hidden-item-layout="true" current="{{index==-1?days.length-1:index}}" style="height: {{height?height:'100vh'}}" bindchange="change">
   <block wx:for="{{days}}" wx:key="*this" wx:for-item="cardList" wx:key="key1">
     <swiper-item >
       <view class="swiper-item"  wx:for="{{cardList}}" wx:for-item="card" wx:key="key2">

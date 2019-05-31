@@ -1,5 +1,7 @@
 // miniprogram/pages/comment/comment.js
 const app = getApp();
+
+const {api} =require('../../config')
 Page({
 
   /**
@@ -134,7 +136,7 @@ Page({
   sliderChange(e){
     let ID = e.target.dataset.id;
     let index = this.data.index
-    let card = `days[${index}][${ID}].point`;
+    let card = `days[${index}][${ID}].score`;
     console.log(index , card)
     let isFinish = `days[${index}][${ID}].isFinish`;
     this.setData({
@@ -218,7 +220,6 @@ Page({
     console.log(height)
   },
   onLoad: function (options) {
-    const {api} =require('../../config')
     const _this = this;
     console.log(api.getTable)
     wx.request({
@@ -313,7 +314,31 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log('aaaa')
+    let arr = []
+    console.log(this.data.days)
+    this.data.days.forEach(val=>{
+      val.forEach(val=>{
+        arr.push(val)
+      })
+    });
+    console.log(arr);
+    wx.request({
+      url: api.comment,
+      data: {
+        "skey":wx.getStorageSync('skey'),
+        "period_id":app.globalData.periods[app.globalData.periods.length-1],
+        "arr":arr
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      success: (result)=>{
+        console.log(result)
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
 
   /**

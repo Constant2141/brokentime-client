@@ -27,7 +27,7 @@
       <view class='whatyoudo {{isHidden ? ["hidden"] : [""]}}'>{{msg}}</view>
     </view>
   </view>
-  <view class="content-wrap" wx:if="{{timeList.length==0}}">
+  <view class="content-wrap" wx:if="{{isNew}}" bindtap="toBuild">
     <view class="firstLine">尚未创建时间周期</view>
     <view class="add">+</view>
   </view>
