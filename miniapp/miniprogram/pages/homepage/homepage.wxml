@@ -8,7 +8,7 @@
   </view>
   <image class='menu' bindtap="menuClick" src="http://pryl3ebd5.bkt.clouddn.com/menu@3x.png" ></image>
   <navigator  class='time' url="../../pages/comment/comment" open-type="navigate">
-    <image  class='time' src="http://pryl3ebd5.bkt.clouddn.com/favor.png"  ></image>
+    <image  class='timeImg' src="http://pryl3ebd5.bkt.clouddn.com/favor.png"  ></image>
   </navigator>
   <view class='content-wrap' wx:if="{{timeList.length!=0}}">
     <view class='shade {{change ? ["show"] : ["hide"]}}' catchtap="menuClick"></view>

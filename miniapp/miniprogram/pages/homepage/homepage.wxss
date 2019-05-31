@@ -54,6 +54,11 @@ page{
   z-index: 3;
   position: absolute;
 }
+
+.timeImg{
+  width: 54rpx;
+  height: 54rpx;
+}
 .time-list{
   width: 750rpx;
   display: inline-block;
