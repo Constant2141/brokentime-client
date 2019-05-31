@@ -1,4 +1,5 @@
 // pages/editortime/editortime.js
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -18,7 +19,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let app = getApp();
     let arrayCard = app.globalData.arrayCard;
 
     this.setData({
@@ -30,6 +30,7 @@ Page({
       this.setData({
         cards: arrayCard
       })
+      app.globalData.newCard='';
     } else {
       console.log(app.globalData.newCard)
     }
@@ -99,100 +100,99 @@ Page({
       [affair]: e.detail.value
     })
   },
+  toEditor(){
+    wx.redirectTo({
+      url: '../../pages/newCard/newCard',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+  },
   save() {
-    let app = getApp();
     let _this = this;
     const {api} = require('../../config')
-    console.log(api.createTable);
-    console.log('app.globalData.arrayCard.length: '+app.globalData.arrayCard.length)
-    console.log(app.globalData.arrayCard)
-    if(app.globalData.arrayCard.length>1){
-      app.globalData.allCards.push(app.globalData.arrayCard);
-      app.globalData.arrayCard = [];
-    }
+    console.log('app.globalData.arrayCard: '+app.globalData.arrayCard);
+    console.log('app.globalData.allCards: '+app.globalData.allCards);
 
-    switch (app.globalData.order) {
-      case `${app.globalData.lastTime}`:
-        this.setData({
-          isNext: false
-        }); console.log(this.data.isNext); break;
-      case "一": app.globalData.order = "二"; break;
-      case "二": app.globalData.order = "三"; break;
-      case "三": app.globalData.order = "四"; break;
-      case "四": app.globalData.order = "五"; break;
-      case "五": app.globalData.order = "六"; break;
-      case "六": app.globalData.order = "七"; break;
-      default: break;
-    }
-    _this.setData({
-      num: app.globalData.order,
-    })
-    app.globalData.newCard = ""
-    console.log(app.globalData.allCards);
-    if (this.data.isNext) {
-      wx.redirectTo({
-        url: './editortime',
-        success: (result) => {
-        },
-        fail: () => { },
-        complete: () => { }
-      });
-    } else {
-      console.log(app.globalData.allCards)
-      if (app.globalData.allCards) {
-        
-        for(let i = 0 ; i< app.globalData.allCards.length-1 ; i++){
-          app.globalData.allCards[i].sort((a, b) => {
-            return a.timeStart >= b.timeStart ? true : false
+    if( app.globalData.arrayCard!=[]
+        && app.globalData.arrayCard.length > 1){
+
+          app.globalData.allCards.push(app.globalData.arrayCard);
+          app.globalData.arrayCard = [];
+          //给卡片按timeStatr排序后加id
+          for(let i = 0 ; i< app.globalData.allCards.length-1 ; i++){
+            app.globalData.allCards[i].sort((a, b) => {
+              return a.timeStart >= b.timeStart ? true : false
+            })
+            app.globalData.allCards[i].forEach(function (val, idx) {
+              val.id = idx
+            })
+            console.log("排序加id后的app.globalData.allCards： "+app.globalData.allCards)
+          }
+          //修改天数显示
+          switch (app.globalData.order) {
+            case `${app.globalData.lastTime}`:
+              this.setData({
+                isNext: false
+              }); console.log(this.data.isNext); break;
+            case "一": app.globalData.order = "二"; break;
+            case "二": app.globalData.order = "三"; break;
+            case "三": app.globalData.order = "四"; break;
+            case "四": app.globalData.order = "五"; break;
+            case "五": app.globalData.order = "六"; break;
+            case "六": app.globalData.order = "七"; break;
+            default: break;
+          }
+          this.setData({
+            num: app.globalData.order,
           })
-          app.globalData.allCards[i].forEach(function (val, idx) {
-            val.id = idx
-          })
-          console.log(app.globalData.allCards)
-        }
-      }
-      console.log({
-        "arr":app.globalData.allCards,
-        "period_id":app.globalData.periods[app.globalData.periods.length-1]
-      })
-      console.log('app.globalData.allCards.length: '+app.globalData.allCards.length)
-      console.log(app.globalData.allCards)
-      if( app.globalData.allCards!=[] 
-        && app.globalData.allCards[0]
-        && app.globalData.allCards[app.globalData.allCards.length-1].length > 1){
-        wx.request({
-          url: api.createTable,
-          data: {
-            "skey": app.globalData.skey,
-            "arr":app.globalData.allCards,
-            "period_id":app.globalData.periods[app.globalData.periods.length-1]
-          },
-          header: {
-            'content-type': 'application/json'
-          },
-          method: 'POST',
-          success(res) {
-            console.log(res)
+
+          if (this.data.isNext) {
             wx.redirectTo({
-              url: '../../pages/settime/settime',
+              url: './editortime',
               success: (result) => {
-                app.globalData.allCards=[];
+                
               },
               fail: () => { },
               complete: () => { }
-            });
-          },
-          fail(err){
-            console.log(err)
+            })
+          }else{
+              wx.request({
+                url: api.createTable,
+                data: {
+                  "skey": app.globalData.skey,
+                  "arr":app.globalData.allCards,
+                  "period_id":app.globalData.periods[app.globalData.periods.length-1]
+                },
+                header: {
+                  'content-type': 'application/json'
+                },
+                method: 'POST',
+                success(res) {
+                  console.log(res)
+                  wx.redirectTo({
+                    url: '../../pages/settime/settime',
+                    success: (result) => {
+                      app.globalData.allCards=[];
+                    },
+                  });
+                },
+                fail(err){
+                  console.log(err)
+                }
+              })
+              
           }
-        })
-      }else{
-        console.log('aaa: '+app.globalData.allCards.length)
-        this.setData({
-          isOnlyOne:true
-        })
-      }
+    }else{
+      //弹出警告 不能只有一个日程
+      this.setData({
+        isOnlyOne:true
+      })
     }
+
+    
   },
   clickCard(e) {
     this.setData({

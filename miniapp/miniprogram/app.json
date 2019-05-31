@@ -1,18 +1,19 @@
 {
   "pages": [
-    "pages/prompt/prompt",
-    "pages/stats/stats",
     "pages/homepage/homepage",
+    "pages/index/index",
+    "pages/prompt/prompt",
+    "pages/history/history",
+    "pages/stats/stats",
     "pages/editortime/editortime",
+    "pages/showBrokenTime/showBrokenTime",
     "pages/setBrokenTime/setBrokenTime",
     "pages/comment/comment",
     "pages/settime/settime",
     "pages/login/login",
     "pages/journey/journey",
     "pages/tips/tips",
-    "pages/history/history",
-    "pages/newCard/newCard",
-    "pages/index/index"
+    "pages/newCard/newCard"
   ],
   "window": {
     "backgroundColor": "#dddddd",

@@ -68,7 +68,7 @@ Page({
     wx.request({
       url: api.getTable,
       data:{
-        "period_id":app.globalData.periods[app.globalData.periods.length-1],
+        "period_id":wx.getStorageSync('period_id'),
         "skey":wx.getStorageSync('skey'),
       },
       method:"POST",

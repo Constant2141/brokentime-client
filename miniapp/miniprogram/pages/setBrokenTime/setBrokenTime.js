@@ -34,6 +34,14 @@ Page({
       method:"POST",
       success:(res)=>{
         console.log(res)
+        wx.redirectTo({
+          url: '../../pages/homepage/homepage',
+          success: (result)=>{
+            
+          },
+          fail: ()=>{},
+          complete: ()=>{}
+        });
       }
     })
   },
