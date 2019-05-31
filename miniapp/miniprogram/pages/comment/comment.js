@@ -1,4 +1,5 @@
 // miniprogram/pages/comment/comment.js
+const app = getApp();
 Page({
 
   /**
@@ -223,7 +224,7 @@ Page({
     wx.request({
       url: api.getTable,
       data: {
-        "skey":app.globalData.skey,
+        "skey":wx.getStorageSync('skey'),
         "period_id":app.globalData.periods[app.globalData.periods.length-1]
       },
       header: {

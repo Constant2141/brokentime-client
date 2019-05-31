@@ -92,12 +92,11 @@ Page({
     let app = getApp();
     const _this = this;
     console.log(app.globalData.skey);
-    
     console.log(api.getTable)
     wx.request({
       url: api.getTable,
       data: {
-        "skey":app.globalData.skey,
+        "skey":wx.getStorageSync('skey'),
         "period_id":app.globalData.periods[app.globalData.periods.length-1]
       },
       header: {

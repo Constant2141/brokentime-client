@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/prompt/prompt",
+    "pages/homepage/homepage",
     "pages/editortime/editortime",
     "pages/setBrokenTime/setBrokenTime",
-    "pages/homepage/homepage",
     "pages/comment/comment",
     "pages/settime/settime",
     "pages/login/login",
