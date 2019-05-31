@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/prompt/prompt",
     "pages/journey/journey",
     "pages/stats/stats",
-    "pages/prompt/prompt",
     "pages/settime/settime",
     "pages/tips/tips",
     "pages/setBrokenTime/setBrokenTime",
