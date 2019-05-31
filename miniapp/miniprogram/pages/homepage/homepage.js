@@ -13,6 +13,7 @@ Page({
     endY:0,
     value:[0],
     select:1,
+    isNew:true,
     timeList:[
       // {
       //   time:'20:26',
@@ -32,7 +33,7 @@ Page({
   },
   showBKtime(){
     wx.navigateTo({
-      url:'../showBrokenTime/showBrokenTime'
+      url:'../history/history'
     })
   },
   menuClick(e){
@@ -92,12 +93,12 @@ Page({
     let app = getApp();
     const _this = this;
     console.log(app.globalData.skey);
-    
     console.log(api.getTable)
+  
     wx.request({
       url: api.getTable,
       data: {
-        "skey":app.globalData.skey,
+        "skey":wx.getStorageSync('skey'),
         "period_id":app.globalData.periods[app.globalData.periods.length-1]
       },
       header: {
@@ -105,12 +106,23 @@ Page({
       },
       method: 'POST',
       success: (result)=>{
-        console.log(result.data.data.btables)
 
         this.setData({
           timeList:result.data.data.btables,
           msg:result.data.data.btables[0].affair
         })
+        let [month,day] = res.data.data.endDay.split('.')
+        let nowMon = new Date().getMonth()+1
+        let nowDay = new Date().getDate()
+        if(nowMon >= month && nowDay > day){
+          this.setData({
+            isNew:true
+          })
+        }else{
+          this.setData({
+            isNew:false
+          })
+        }
       },
       fail: ()=>{},
       complete: ()=>{}
@@ -119,6 +131,11 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
+  toBuild(){
+    wx.redirectTo({
+      url:'../../pages/prompt/prompt'
+    })
+  },
   onReady: function () {
 
   },

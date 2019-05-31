@@ -1,5 +1,5 @@
 const app = getApp();
-
+const { api } = require('../../config');
 Page({
   data:{
     a:20,
@@ -29,12 +29,20 @@ Page({
     })
   },
   //小程序启动后执行
+  abbb(){
+    
+  },
   onLaunch:function(){
-
+    this.fn();
   },
   //页面渲染后执行
   onLoad:function(){
     // console.log(app,this.a)
+    setTimeout(()=>{
+      wx.redirectTo({
+        url:'../../pages/homepage/homepage'
+      })
+    },4000)
   },
   a:12,
   user:{

@@ -5,9 +5,7 @@
 <image class='bg-card'></image>
 <view class='time'>
   <font class='date'>第{{num}}天</font>
-  <navigator class="dot" target="" url='../../pages/newCard/newCard' hover-class="navigator-hover" open-type="navigate">
-    <image class='dot' src='http://pryl3ebd5.bkt.clouddn.com/dot.png'></image>
-  </navigator>
+    <image class='dot' src='http://pryl3ebd5.bkt.clouddn.com/dot.png' bindtap="toEditor"></image>
 </view>
 <view class='card-wrap' wx:for="{{cards}}"  wx:key="id">
   <view class='card'>
