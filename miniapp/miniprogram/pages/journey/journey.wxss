@@ -1,0 +1,24 @@
+/* miniprogram/pages/journey/journey.wxss */
+.text {
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.left {
+  width: 1086rpx;
+  height: 1032rpx;
+  position: absolute;
+  left: -402rpx;
+  top: -409rpx;
+}
+.right {
+  width:716rpx;
+  height: 708rpx;
+  position: absolute;
+  right: -170rpx;
+  bottom: 0rpx;
+}
