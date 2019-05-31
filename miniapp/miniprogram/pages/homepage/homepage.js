@@ -106,22 +106,27 @@ Page({
       },
       method: 'POST',
       success: (result)=>{
-        
-        this.setData({
-          timeList:result.data.data.btables,
-          msg:result.data.data.btables[0].affair
-        })
-        let [month,day] = result.data.data.endDay.split('.')
-        let nowMon = new Date().getMonth()+1
-        let nowDay = new Date().getDate()
-        if(nowMon >= month && nowDay > day){
+        console.log(result)
+        if(result.data.data!=null){
+          
+        console.log(result.data)
           this.setData({
-            isNew:true
+            timeList:result.data.data.btables,
+            msg:result.data.data.btables[0].affair
           })
-        }else{
-          this.setData({
-            isNew:false
-          })
+          let [month,day] = result.data.data.endDay.split('.')
+          let nowMon = new Date().getMonth()+1
+          let nowDay = new Date().getDate()
+          if(nowMon >= month && nowDay > day){
+            this.setData({
+              isNew:true
+            })
+          }else{
+            this.setData({
+              isNew:false
+            })
+          }
+          
         }
       },
       fail: ()=>{},

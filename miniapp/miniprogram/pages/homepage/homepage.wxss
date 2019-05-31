@@ -9,7 +9,7 @@ page{
   height: 100%;
   width: 992rpx;
   position: absolute;
-  left:s -242rpx;
+  left: -242rpx;
   background: linear-gradient(#000000,#545454);
   transition: left 0.5s 0s ease-in-out;
 }
