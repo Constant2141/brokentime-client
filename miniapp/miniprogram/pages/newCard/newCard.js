@@ -5,9 +5,10 @@ Page({
    */
   data: {
     timeStart: '添加时间',
-    timeEnd: '',
+    lastTime: '',
     affair: '',
     isClickDot: false,
+    isNull: Boolean
   },
 
   /**
@@ -16,9 +17,9 @@ Page({
   onLoad: function (options) {
 
   },
-  clickPicker(){
+  clickPicker() {
     this.setData({
-      timeEnd:'00:00'
+      lastTime: '00:00'
     })
   },
   clickDot() {
@@ -33,7 +34,7 @@ Page({
   },
   bindTimeEndChange(e) {
     this.setData({
-      timeEnd: this.getMins(e.detail.value) + "min"
+      lastTime: this.getMins(e.detail.value)
     });
   },
   getMins(time) {
@@ -47,37 +48,51 @@ Page({
     })
     console.log(e.detail.value)
   },
-  inputChange(e){
+  inputChange(e) {
     this.setData({
-      timeEnd:e.detail.value +'min',
+      lastTime: e.detail.value,
     });
-      // this.setData({
-      //   [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
-      // });
-    console.log(this.data.timeEnd)
+    // this.setData({
+    //   [timeEnd]: this.getMins(this.data.timeEnd) + 'min'
+    // });
+    console.log(this.data.lastTime)
+  },
+  confirm(e){
+    console.log(e)
+    this.setData({
+      isNull:false
+    })
   },
   submitCard() {
-    const _this =this;
-    function promise() {
-      return new Promise(function (resolve, reject) {
-        // setTimeout(() => {
+    const _this = this;
+
+    if (this.data.timeStart == "" || this.data.lastTime == "" || this.data.affair == "") {
+      this.setData({
+        isNull : true
+      })
+    } else {
+      function promise() {
+        return new Promise(function (resolve, reject) {
+          // setTimeout(() => {
           const newCard = {
             timeStart: _this.data.timeStart,
-            timeEnd: _this.data.timeEnd,
+            lastTime: _this.data.lastTime,
             affair: _this.data.affair,
           }
           return resolve(newCard);
-        // }, 50)
+          // }, 50)
+        });
+      }
+      promise().then(newCard => {
+        let app = getApp();
+        app.globalData.newCard = newCard;
+        console.log(app.globalData.newCard)
+        wx.redirectTo({
+          url: '/pages/editortime/editortime'
+        })
       });
     }
-    promise().then(newCard => {
-      let app = getApp();
-      app.globalData.newCard = newCard;
-      console.log(app.globalData.newCard)
-      wx.redirectTo({
-        url:'/pages/editortime/editortime'
-      })
-    });
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -111,7 +126,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**

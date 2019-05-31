@@ -1,17 +1,18 @@
 {
   "pages": [
     "pages/prompt/prompt",
+    "pages/editortime/editortime",
+    "pages/setBrokenTime/setBrokenTime",
+    "pages/homepage/homepage",
+    "pages/comment/comment",
+    "pages/settime/settime",
+    "pages/login/login",
     "pages/journey/journey",
     "pages/stats/stats",
-    "pages/settime/settime",
     "pages/tips/tips",
-    "pages/setBrokenTime/setBrokenTime",
     "pages/history/history",
-    "pages/editortime/editortime",
-    "pages/homepage/homepage",
     "pages/newCard/newCard",
-    "pages/index/index",
-    "pages/login/login"
+    "pages/index/index"
   ],
   "window": {
     "backgroundColor": "#dddddd",

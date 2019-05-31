@@ -6,8 +6,8 @@
         <view class='line'></view>
       </view>
       <view class='issue-area'>
-        <view class='issue-time' >{{timeline.issueTime}}</view>
-        <view class='issue'>{{timeline.issue}}</view>
-        <view class='duration'>{{timeline.duration}}</view>
+        <view class='issue-time' >{{timeline.timeStart}}</view>
+        <view class='issue'>{{timeline.affair}}</view>
+        <view class='duration'>{{timeline.lastTime}}min</view>
       </view>
     </view>

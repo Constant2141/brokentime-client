@@ -3,7 +3,7 @@
   <view class='slide'>
     <view class='slide-item'>时间表</view>
     <view class='slide-item'>破碎时间</view>
-    <view class='slide-item'>历史</view>
+    <view class='slide-item' bindtap="showBKtime">历史</view>
     <view class='slide-item'>设置</view>
   </view>
   <image class='menu' bindtap="menuClick" src="http://pryl3ebd5.bkt.clouddn.com/menu@3x.png" ></image>
@@ -21,7 +21,7 @@
         bindchange="bindChange"
       >
         <picker-view-column class="column">
-          <view  wx:for="{{timeList}}" wx:key="id">{{item.time}}</view>
+          <view  wx:for="{{timeList}}" wx:key="id">{{item.timeStart}}</view>
         </picker-view-column>
       </picker-view>
       <view class='whatyoudo {{isHidden ? ["hidden"] : [""]}}'>{{msg}}</view>

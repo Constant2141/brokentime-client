@@ -1,4 +1,4 @@
-// miniprogram/pages/setBrokenTime/setBrokenTime.js
+// pages/showBrokenTime/showBrokenTime.js
 const { api } = require("../../config");
 const app = getApp();
 var data ;
@@ -12,8 +12,38 @@ Page({
     // week:'星期四',
     isfinish:false,
     isback:false,
-    bigDeal:[],
-    brokenDeal:[],
+    bigDeal:[[{
+      creatDate:'4.25',
+      createDay:'一',
+      afair:"第一",
+      lastTime:"5",
+      order:"1",
+      timeStart:"01:00",
+      timeEnd:"01:05"
+    },
+    {
+      creatDate:'4.25',
+      createDay:'一',
+      afair:"第一",
+      lastTime:"5",
+      order:"1",
+      timeStart:"01:00",
+      timeEnd:"01:05"
+    },
+    {
+      creatDate:'4.25',
+      createDay:'一',
+      afair:"第一",
+      lastTime:"5",
+      order:"1",
+      timeStart:"01:00",
+      timeEnd:"01:05"
+    }]],
+    brokenDeal:[[{
+      affair:'哈哈哈哈哈哈哈或或或或或或或或哈哈哈哈哈',
+      timeStart:"01:05",
+      timeEnd:"2:00"
+    }]],
     sendData:[],
 
   },
@@ -21,9 +51,6 @@ Page({
     this.setData({
       isfinish:true
     })
-    console.log(wx.getStorageSync('skey'))
-    console.log(app.globalData.periods[app.globalData.periods.length-1])
-    console.log(this.data.sendData)
     wx.request({
       url:api.createBTable,
       data:{
@@ -54,6 +81,8 @@ Page({
         
       }
     })
+  },
+  getBroken(){
     wx.request({
       url: api.calc,
       data:{
@@ -71,14 +100,14 @@ Page({
       },
       fail:(err)=>{
         console.log(err);
-        
       }
     })
   },
   bind(){
     this.getTable();
-
-
+    // this.getBroken();
+    // console.log(app.globalData.periods[app.globalData.periods.length-1]);
+    // console.log(wx.getStorageSync('skey'));
   },
   split(e){
     let arr = [];
@@ -101,15 +130,19 @@ Page({
   },
   handleData(e){
     let issue = [];
+    let issue2 = [];
     switch(e.lastTime){
       case "1": issue[0] = [];
+                issue2[0] = [];
               break;
       case "3": for(let i =0;i<3;i++){
                 issue[i] = [];
+                issue2[i] = [];
               }
               break;  
       case "3": for(let i =0;i<7;i++){
                 issue[i] = [];
+                issue2[i] = [];
               }
               break      
     }
@@ -131,13 +164,33 @@ Page({
                   break;               
       }
     }
+    for(let i = 0;i < e.btables.length;i++){
+      switch(e.btables[i].order){
+        case "1":issue2[0].push(e.btables[i]);
+                break;
+        case "2":issue2[1].push(e.btables[i]);
+                break;  
+        case "3":issue2[2].push(e.btables[i]);
+                break;     
+        case "4":issue2[3].push(e.btables[i]);
+                break;
+        case "5":issue2[4].push(e.btables[i]);
+                break;  
+        case "6":issue2[5].push(e.btables[i]);
+                break;
+        case "7":issue2[6].push(e.btables[i]);
+                break;  
+      }
+    }
     console.log(issue)
+    console.log(issue2)
     this.setData({
-      bigDeal:issue
+      bigDeal:issue,
+      brokenDeal:issue2
     })
   },
   bindblur(e){
-    // console.log(e)
+    console.log(e)
     let index = e.target.id.split(",");
     let val =   `sendData[${index[0]}][${index[1]}].affair`;
     this.setData({
@@ -155,7 +208,7 @@ Page({
    */
   onLoad: function (options) {
     this.getTable();
-  },
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
