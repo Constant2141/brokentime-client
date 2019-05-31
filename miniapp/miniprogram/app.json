@@ -2,16 +2,16 @@
   "pages": [
     "pages/prompt/prompt",
     "pages/journey/journey",
+    "pages/stats/stats",
+    "pages/settime/settime",
     "pages/tips/tips",
     "pages/homepage/homepage",
     "pages/index/index",
     "pages/history/history",
-    "pages/stats/stats",
     "pages/editortime/editortime",
     "pages/showBrokenTime/showBrokenTime",
     "pages/setBrokenTime/setBrokenTime",
     "pages/comment/comment",
-    "pages/settime/settime",
     "pages/login/login",
     "pages/newCard/newCard"
   ],
