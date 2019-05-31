@@ -7,7 +7,7 @@ Page({
   },
   next(){
     wx.redirectTo({
-      url:"../../pages/setBrokenTime/setBrokenTime"
+      url:"../../pages/homepage/homepage"
     })
   },
   /**

@@ -40,7 +40,7 @@ Page({
     })
     setTimeout(()=>{
       wx.redirectTo({
-        url:"../../pages/homepage/homepage"
+        url:"../../pages/setBrokenTime/setBrokenTime"
       })
     },2000)
   },
