@@ -16,6 +16,6 @@
   <view class='button-wrap'>
     <view class='next-button' bindtap="isfinish">next</view>
   </view>
-  <warn wx:if="{{isfinish}}" content="是否确认填写的日程信息完整？" turnBackTo="pages/setBrokenTime/setBrokenTime"></warn>
+  <warn wx:if="{{isfinish}}" content="是否确认填写的日程信息完整？" turnBackTo="pages/journey/journey"></warn>
   <!-- <view style="width:30px;height:30px;background:green;position:fixed" bindtap="bind"></view> -->
 </view>

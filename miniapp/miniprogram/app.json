@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/prompt/prompt",
+    "pages/journey/journey",
+    "pages/tips/tips",
     "pages/homepage/homepage",
     "pages/index/index",
-    "pages/prompt/prompt",
     "pages/history/history",
     "pages/stats/stats",
     "pages/editortime/editortime",
@@ -11,8 +13,6 @@
     "pages/comment/comment",
     "pages/settime/settime",
     "pages/login/login",
-    "pages/journey/journey",
-    "pages/tips/tips",
     "pages/newCard/newCard"
   ],
   "window": {

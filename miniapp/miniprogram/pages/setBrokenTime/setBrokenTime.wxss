@@ -132,6 +132,9 @@
     position:relative;
     left:130rpx;
 }
+.broken-text input{
+    text-align: center;
+}
 .placeholder{
     text-align: center;
     color: #ffffff;

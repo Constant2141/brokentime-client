@@ -35,7 +35,7 @@ Page({
       success:(res)=>{
         console.log(res)
         wx.redirectTo({
-          url: '../../pages/homepage/homepage',
+          url: '../../pages/stats/stats',
           success: (result)=>{
             
           },

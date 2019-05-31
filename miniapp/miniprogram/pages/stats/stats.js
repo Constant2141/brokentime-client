@@ -38,6 +38,11 @@ Page({
         console.log(err)
       }
     })
+    setTimeout(()=>{
+      wx.redirectTo({
+        url:"../../pages/homepage/homepage"
+      })
+    },2000)
   },
 
   /**
