@@ -14,6 +14,7 @@ api.calc = baseurl + 'api/calc';
 api.stats = baseurl + 'api/stats'; //创建破碎时间
 api.comment = baseurl + 'api/comment';
 api.history = baseurl + 'api/history';
+
 module.exports = {
    api
 }

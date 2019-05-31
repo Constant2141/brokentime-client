@@ -1,17 +1,17 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/homepage/homepage",
+    "pages/index/index",
     "pages/prompt/prompt",
     "pages/history/history",
-    "pages/comment/comment",
+    "pages/stats/stats",
     "pages/editortime/editortime",
     "pages/showBrokenTime/showBrokenTime",
     "pages/setBrokenTime/setBrokenTime",
+    "pages/comment/comment",
     "pages/settime/settime",
     "pages/login/login",
     "pages/journey/journey",
-    "pages/stats/stats",
     "pages/tips/tips",
     "pages/newCard/newCard"
   ],
@@ -23,4 +23,6 @@
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"
+  
+  
 }
