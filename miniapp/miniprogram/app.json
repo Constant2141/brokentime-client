@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/stats/stats",
     "pages/prompt/prompt",
+    "pages/homepage/homepage",
     "pages/editortime/editortime",
     "pages/setBrokenTime/setBrokenTime",
-    "pages/homepage/homepage",
     "pages/comment/comment",
     "pages/settime/settime",
     "pages/login/login",
     "pages/journey/journey",
-    "pages/stats/stats",
     "pages/tips/tips",
     "pages/history/history",
     "pages/newCard/newCard",
@@ -22,4 +22,6 @@
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"
+  
+  
 }

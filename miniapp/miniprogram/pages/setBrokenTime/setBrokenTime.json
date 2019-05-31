@@ -1,5 +1,6 @@
 {
     "usingComponents": {
         "warn": "../../components/warn/warn"
-      }
+      },
+      "navigationBarTitleText": "创建破碎时间"
 }
